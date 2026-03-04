@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: Wyatt
+  name: Wyatt ERP
   text: Documentation
   tagline: Developer and user docs for Nugget Scientific's Odoo 19 deployment
   actions:
