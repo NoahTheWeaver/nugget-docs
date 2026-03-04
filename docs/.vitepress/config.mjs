@@ -8,6 +8,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Why Wyatt', link: '/why-wyatt' },
       { text: 'Modules', link: '/modules/' },
       { text: 'Guides', link: '/guides/' },
     ],

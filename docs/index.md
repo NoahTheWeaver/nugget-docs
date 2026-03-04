@@ -7,6 +7,9 @@ hero:
   tagline: Developer and user docs for Nugget Scientific's Odoo 19 deployment
   actions:
     - theme: brand
+      text: Why Wyatt
+      link: /why-wyatt
+    - theme: alt
       text: Custom Modules
       link: /modules/
     - theme: alt
