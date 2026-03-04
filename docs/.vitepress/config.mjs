@@ -10,7 +10,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Why Wyatt', link: '/why-wyatt' },
       { text: 'Modules', link: '/modules/' },
-      { text: 'Guides', link: '/guides/' },
+      { text: 'User Guide', link: '/user-guide/' },
     ],
 
     sidebar: {
@@ -29,13 +29,11 @@ export default defineConfig({
           ],
         },
       ],
-      '/guides/': [
+      '/user-guide/': [
         {
-          text: 'Guides',
+          text: 'User Guide',
           items: [
-            { text: 'Overview', link: '/guides/' },
-            { text: 'Dev Environment Setup', link: '/guides/dev-setup' },
-            { text: 'Odoo Docs Tile', link: '/guides/odoo-docs-tile' },
+            { text: 'Overview', link: '/user-guide/' },
           ],
         },
       ],

@@ -13,8 +13,8 @@ hero:
       text: Custom Modules
       link: /modules/
     - theme: alt
-      text: Guides
-      link: /guides/
+      text: User Guide
+      link: /user-guide/
 
 features:
   - title: 7 Custom Modules
