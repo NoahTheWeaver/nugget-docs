@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Nugget ERP Docs',
-  description: 'Developer and user documentation for Nugget ERP (Odoo 19)',
+  title: 'Wyatt',
+  description: 'Developer and user documentation for Wyatt (Odoo 19)',
   base: '/',
 
   themeConfig: {
