@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Nugget ERP Docs',
   description: 'Developer and user documentation for Nugget ERP (Odoo 19)',
+  base: '/nugget-docs/',
 
   themeConfig: {
     nav: [
@@ -33,6 +34,7 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/guides/' },
             { text: 'Dev Environment Setup', link: '/guides/dev-setup' },
+            { text: 'Odoo Docs Tile', link: '/guides/odoo-docs-tile' },
           ],
         },
       ],
