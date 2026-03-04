@@ -12,6 +12,9 @@ hero:
     - theme: alt
       text: User Guide
       link: /user-guide/
+    - theme: alt
+      text: Developers Only
+      link: /technical/
 
 features:
   - title: Field Service
