@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Wyatt',
+  title: 'Wyatt Docs',
   description: 'Developer and user documentation for Wyatt (Odoo 19)',
   base: '/',
 
