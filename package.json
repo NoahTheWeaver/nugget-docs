@@ -1,0 +1,26 @@
+{
+  "name": "nugget-docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoahTheWeaver/nugget-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/NoahTheWeaver/nugget-docs/issues"
+  },
+  "homepage": "https://github.com/NoahTheWeaver/nugget-docs#readme",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
