@@ -17,7 +17,7 @@ Internal reference for developers and system administrators.
 | [Timesheet Posting](./modules/timesheet-posting) | `account_timesheet_posting` | High | Active |
 | [Maintenance Checklist](./modules/maintenance-checklist) | `maintenance_checklist_report` | Med | Active |
 | [Google Sheet Integration](./modules/google-sheet-integration) | `google_sheet_integration` | Med | Active |
-| [Trip Management](./modules/trip-management) | `trip_management` | Low-Med | Active |
+
 
 ### Module Design Principles
 

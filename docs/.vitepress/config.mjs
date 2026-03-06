@@ -35,7 +35,7 @@ export default defineConfig({
             { text: 'Timesheet Posting', link: '/technical/modules/timesheet-posting' },
             { text: 'Maintenance Checklist', link: '/technical/modules/maintenance-checklist' },
             { text: 'Google Sheet Integration', link: '/technical/modules/google-sheet-integration' },
-            { text: 'Trip Management', link: '/technical/modules/trip-management' },
+
           ],
         },
         {
