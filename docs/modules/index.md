@@ -1,6 +1,8 @@
 # Custom Modules
 
-All custom modules follow the `nugget_<feature>` naming convention to distinguish them from standard Odoo modules.
+All custom modules follow the `nugget_<feature>` naming convention to distinguish them from standard Odoo modules. Contractor-built modules use descriptive names without the prefix.
+
+## Nugget Modules
 
 | Module | Technical Name | Risk | Status |
 |--------|---------------|------|--------|
@@ -11,6 +13,16 @@ All custom modules follow the `nugget_<feature>` naming convention to distinguis
 | [Purchase Configurator](./purchase-configurator) | `nugget_purchase_configurator` | Med | Active |
 | [Service Requests](./service-requests) | `nugget_service_requests` | Med | Active |
 | [Per Diem Tracking](./per-diem) | `nugget_per_diem` | High | Active |
+
+## Contractor Modules
+
+| Module | Technical Name | Risk | Status |
+|--------|---------------|------|--------|
+| [Track Location Analytics](./track-location-analytics) | `track_location_analytics` | Med-High | Active |
+| [Timesheet Posting](./timesheet-posting) | `account_timesheet_posting` | High | Active |
+| [Maintenance Checklist](./maintenance-checklist) | `maintenance_checklist_report` | Med | Active |
+| [Google Sheet Integration](./google-sheet-integration) | `google_sheet_integration` | Med | Active |
+| [Trip Management](./trip-management) | `trip_management` | Low-Med | Active |
 
 ## Module Design Principles
 
