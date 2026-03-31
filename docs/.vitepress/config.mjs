@@ -57,12 +57,14 @@ export default defineConfig({
           text: 'Field Service',
           items: [
             { text: 'Overview', link: '/user-guide/field-service/' },
+            { text: 'Per Diem Tracking', link: '/user-guide/field-service/per-diem' },
           ],
         },
         {
           text: 'Accounting & Finance',
           items: [
             { text: 'Overview', link: '/user-guide/accounting/' },
+            { text: 'Per Diem Administration', link: '/user-guide/accounting/per-diem' },
           ],
         },
         {
