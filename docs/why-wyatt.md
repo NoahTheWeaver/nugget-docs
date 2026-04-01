@@ -27,7 +27,7 @@ Wyatt fixes this by putting everything in one place. When a system ships, accoun
 
 This documentation covers the custom modules and configuration built on top of standard Odoo to fit Nugget's specific workflows:
 
-- **[Modules](/modules/)** — Reference pages for each custom module: what it does, how it works, and how to configure it
-- **[Guides](/guides/)** — Step-by-step instructions for development setup, deployment, and operations
+- **[Technical Docs](/technical/)** — Reference pages for each custom module: what it does, how it works, and how to configure it
+- **[User Guide](/user-guide/)** — Step-by-step instructions organized by role: sales, field service, operations, and accounting
 
 Standard Odoo features (accounting, inventory, CRM, etc.) are covered by [Odoo's own documentation](https://www.odoo.com/documentation/19.0/). These docs focus on what's unique to Nugget.
