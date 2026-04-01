@@ -1,7 +1,8 @@
 # Inventory Status
 
-**Technical name:** `nugget_inventory_status`
-**Depends on:** `stock`, `product`
+**Technical name:** `nugget_inventory_status`\
+**Depends on:** `stock`, `product`\
+**Author:** Nugget Scientific
 
 Provides a consolidated inventory status list view showing key stock metrics per product (ready-to-ship quantities, stock levels) in a single report.
 

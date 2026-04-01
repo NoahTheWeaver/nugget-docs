@@ -1,7 +1,8 @@
 # Variant Name
 
-**Technical name:** `nugget_variant_name`
-**Depends on:** `product`
+**Technical name:** `nugget_variant_name`\
+**Depends on:** `product`\
+**Author:** Nugget Scientific
 
 Adds a `variant_name` field to product variants, giving each variant a human-readable display name beyond the default attribute-based naming.
 

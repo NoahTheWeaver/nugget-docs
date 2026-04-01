@@ -1,7 +1,8 @@
 # Service Requests
 
-**Technical name:** `nugget_service_requests`
-**Depends on:** `project`, `maintenance`, `product`
+**Technical name:** `nugget_service_requests`\
+**Depends on:** `project`, `maintenance`, `product`\
+**Author:** Nugget Scientific
 
 Links maintenance requests to project tasks, enabling service requests to be tracked against specific engagements. Uses "Service Request" terminology in the UI instead of "Maintenance Request" to align with Nugget's field service model.
 

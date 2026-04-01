@@ -1,7 +1,8 @@
 # Google Sheet Integration
 
-**Technical name:** `google_sheet_integration`
-**Depends on:** `base`, `maintenance`, `documents_spreadsheet`, `mail`
+**Technical name:** `google_sheet_integration`\
+**Depends on:** `base`, `maintenance`, `documents_spreadsheet`, `mail`\
+**Author:** J2 Enterprise Resource Partners
 
 Creates pre-filled spreadsheets from templates for maintenance requests. Completed spreadsheets are saved as XLSX attachments and posted to the maintenance request's chatter.
 

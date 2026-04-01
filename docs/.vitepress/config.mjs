@@ -5,6 +5,8 @@ export default defineConfig({
   description: 'Developer and user documentation for Wyatt (Odoo 19)',
   base: '/',
 
+  lastUpdated: true,
+
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
@@ -24,18 +26,17 @@ export default defineConfig({
         {
           text: 'Custom Modules',
           items: [
-            { text: 'Variant Name', link: '/technical/modules/variant-name' },
-            { text: 'Inventory Status', link: '/technical/modules/inventory-status' },
-            { text: 'Task Analytics', link: '/technical/modules/task-analytics' },
-            { text: 'Component Inventory', link: '/technical/modules/component-inventory' },
-            { text: 'Purchase Configurator', link: '/technical/modules/purchase-configurator' },
-            { text: 'Service Requests', link: '/technical/modules/service-requests' },
-            { text: 'Per Diem Tracking', link: '/technical/modules/per-diem' },
-            { text: 'Track Location Analytics', link: '/technical/modules/track-location-analytics' },
-            { text: 'Timesheet Posting', link: '/technical/modules/timesheet-posting' },
-            { text: 'Maintenance Checklist', link: '/technical/modules/maintenance-checklist' },
-            { text: 'Google Sheet Integration', link: '/technical/modules/google-sheet-integration' },
-
+            { text: '☐ Service Requests', link: '/technical/modules/service-requests' },
+            { text: '☐ Task Analytics', link: '/technical/modules/task-analytics' },
+            { text: '☐ Timesheet Posting', link: '/technical/modules/timesheet-posting' },
+            { text: '☑ Per Diem Tracking', link: '/technical/modules/per-diem' },
+            { text: '☐ Purchase Configurator', link: '/technical/modules/purchase-configurator' },
+            { text: '☐ Inventory Status', link: '/technical/modules/inventory-status' },
+            { text: '☐ Component Inventory', link: '/technical/modules/component-inventory' },
+            { text: '☐ Variant Name', link: '/technical/modules/variant-name' },
+            { text: '☐ Track Location Analytics', link: '/technical/modules/track-location-analytics' },
+            { text: '☐ Maintenance Checklist', link: '/technical/modules/maintenance-checklist' },
+            { text: '☐ Google Sheet Integration', link: '/technical/modules/google-sheet-integration' },
           ],
         },
         {
