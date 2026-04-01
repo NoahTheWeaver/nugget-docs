@@ -1,0 +1,21 @@
+# Contract Management
+
+## What a Contract Looks Like
+A service contract is a recurring subscription in Odoo. It covers specific systems at a customer site for a defined term.
+*(coming soon)*
+
+## Viewing Active Contracts
+Where to find them, what the key fields are, how to see what's covered.
+*(coming soon)*
+
+## Which Systems Are Covered
+How to check if a specific system at a customer site is under contract. What to do when it's not.
+*(coming soon)*
+
+## Upcoming Renewals and Expirations
+How to see what's expiring soon. What to do when a contract is up for renewal.
+*(coming soon)*
+
+## Adding or Removing Systems
+When a customer buys a new system or decommissions one — how to update the contract.
+*(coming soon)*

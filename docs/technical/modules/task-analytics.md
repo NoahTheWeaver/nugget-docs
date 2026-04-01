@@ -4,9 +4,6 @@ title: Task-Level Analytics
 
 # Task-Level Analytics
 
-**Technical name:** `nugget_task_analytics`\
-**Author:** Noah Weaver
-
 Extends Odoo to support analytic accounts at the task level, not just project level. When a task has an analytic account set, timesheets logged against it use that account instead of the project's default.
 
 ## Why this exists

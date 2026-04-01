@@ -4,9 +4,6 @@ title: Per Diem Tracking
 
 # Per Diem Tracking
 
-**Technical name:** `nugget_per_diem`\
-**Author:** Noah Weaver
-
 Extends timesheets with per diem tracking for field service engineers. Per diem records are computed automatically in real time when timesheets are saved on eligible tasks.
 
 ## Why this exists

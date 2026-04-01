@@ -1,9 +1,5 @@
 # Track Location Analytics
 
-**Technical name:** `track_location_analytics`\
-**Depends on:** `base`, `sale_management`, `stock_delivery`, `analytic`, `purchase`, `account_accountant`, `maintenance`\
-**Author:** J2 Enterprise Resource Partners
-
 Links stock pickings (inventory transfers) to maintenance requests and adds analytic distribution tracking on inventory moves for flagged warehouse locations.
 
 ## What It Does

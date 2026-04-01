@@ -2,13 +2,14 @@
 
 Guides for field service engineers and dispatch coordinators.
 
-*This section is under construction. Guides will be added as workflows are finalized during conference room pilots.*
+- [Time Tracking & Per Diem](./time-tracking) — How to log time, how per diem works, what happens after
 
-## Planned Topics
+## Charter Process Coverage
 
-- Viewing your schedule and job details
-- Logging timesheets against tasks
-- Per diem eligibility and how it's calculated
-- Creating and managing service requests
-- Service contract onboarding
-- Emergency dispatch workflow
+These guides will be built during end-to-end testing of the five key processes:
+
+| Charter Process | Guides |
+|---|---|
+| **Emergency Dispatch** (customer call → repair report) | Service Requests |
+| **New Service Contract** (lead → first PM) | Service Requests |
+| *General* | Time Tracking & Per Diem, Logging Parts & Materials |

@@ -1,9 +1,5 @@
 # Maintenance Checklist Report
 
-**Technical name:** `maintenance_checklist_report`\
-**Depends on:** `base`, `maintenance`, `worksheet`, `maintenance_worksheet`\
-**Author:** J2 Enterprise Resource Partners
-
 Custom maintenance worksheet template system with 100+ dynamic fields for PM (preventive maintenance) checklists. Covers equipment inspection, damage assessment, lubrication, calibration, and volume verification. Includes PDF report generation and email distribution.
 
 ## How It Works

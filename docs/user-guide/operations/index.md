@@ -1,15 +1,17 @@
 # Operations
 
-Guides for warehouse staff, salespeople, and operations managers.
+Guides for warehouse staff, dispatchers, and operations managers.
 
-*This section is under construction. Guides will be added as inventory and purchasing workflows are configured.*
+- [Weekly Timesheet Validation](./timesheet-management) — Friday checklist for reviewing and validating FSE timesheets
 
-## Planned Topics
+## Charter Process Coverage
 
-- Inventory status and stock levels
-- Receiving shipments
-- Picking, packing, and shipping orders
-- Creating and managing purchase orders
-- Sales order workflow
-- Bills of materials and assemblies
-- Component inventory tracking
+These guides will be built during end-to-end testing of the five key processes:
+
+| Charter Process | Guides |
+|---|---|
+| **System Procurement** (PO → stocked inventory) | Receiving & System Intake, Inventory Status |
+| **System Sale** (outreach → install report) | Dispatch & Scheduling, System Registry |
+| **Emergency Dispatch** (customer call → repair report) | Dispatch & Scheduling, Service Request Management |
+| **New Service Contract** (lead → first PM) | Contract Management, System Registry |
+| *General* | Weekly Timesheet Validation |
