@@ -6,12 +6,12 @@ title: Module Risk Assessment
 
 At-a-glance view of maturity, risk, and technical debt across all custom modules. Updated as modules are smoke-tested and documented.
 
-**Last reviewed:** April 1, 2026
+**Last reviewed:** April 1, 2026 (evening session)
 
 | Module | Maturity | Risk | Tech Debt | Biggest Concern | Dev Smoke Test | Staging Smoke Test |
 |--------|----------|------|-----------|-----------------|:---:|:---:|
-| Service Requests | Medium | Medium | Low | Open design questions: stage gating, checklists, resolution codes | ☐ | ☐ |
-| System Registry | Not built | Medium | N/A | New module. Needs to be built before service requests testing. | ☐ | ☐ |
+| Service Requests | Medium | Low | Low | Resolution codes and required-fields-by-stage designed but not yet built. Request type and auto-naming implemented. | ☑ | ☐ |
+| System Registry | Medium | Medium | Low | Built and tested. Subscription linking deferred (needs subscription setup). MO reconfig untested. | ☑ | ☐ |
 | Task Analytics | High | Low | Low | `account_id` field name confusion between project and task models (fixed) | ☑ | ☐ |
 | Timesheet Posting | High | Low | Low | Validation gate and hourly cost enforcement added. J2E-authored code with Nugget modifications. | ☑ | ☐ |
 | Per Diem Tracking | High | Medium | Low | Complex cascade chain (task > timesheet > per diem > JE). Real-time triggers on every timesheet save. | ☑ | ☐ |
@@ -34,9 +34,9 @@ At-a-glance view of maturity, risk, and technical debt across all custom modules
 
 1. **Hardcoded locations in inventory modules.** If warehouse locations are renamed or new warehouses added, `nugget_inventory_status` and `nugget_component_inventory` will silently return wrong data. Refactor to configurable location references, or finalize location names before launch.
 
-2. **System registry not yet built.** New module identified during Apr 1 session. Needs to be built before service requests can be properly tested. Blocks system-to-customer and system-to-subscription mapping.
+2. **Resolution codes and stage-required fields not yet built.** Designed and spec'd but no code yet. Resolution codes feed two charter metrics (Resolution time, # Emergency Callouts). Required-fields-by-stage is XML-only work. Both are launch-critical.
 
-3. **Service request workflow not designed.** Stage gating, checklists, and resolution codes are open design questions. These will be addressed during E2E testing but are launch-critical for the Emergency Dispatch and Service Contract processes.
+3. **Subscription linking untested.** System registry supports subscription mapping but we haven't set up subscriptions in the dev database yet. Blocks contract coverage visibility for dispatch.
 
 4. **Per diem cascade performance.** Every timesheet create/write/unlink triggers per diem recomputation. Fine at current scale (~10 FSEs). Monitor after launch.
 
