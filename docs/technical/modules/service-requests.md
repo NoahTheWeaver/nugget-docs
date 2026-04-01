@@ -29,14 +29,6 @@ The `is_service_task` boolean on `project.task` controls:
 - Whether the service request smart button is visible
 - GL account routing in `nugget_per_diem` (service tasks post to a different per diem account)
 
-### Customer systems
-
-The module extends `maintenance.equipment` (Systems) with:
-- `partner_id` — links a system to a customer company
-- `product_id` — links a system to a product variant
-
-This lets you see all systems installed at a customer from their contact record (Systems tab on the company contact form).
-
 ## Key Views
 
 - **Service menu** — replaces the Maintenance app menu
@@ -52,15 +44,27 @@ No settings required. Terminology changes and view modifications apply on instal
 
 ## Open Design Questions
 
-::: warning Pre-launch decisions needed — NONE OF THIS IS BUILT YET
-These are significant workflow questions that will be designed and built during end-to-end testing:
+### Resolution/repair codes
 
-1. **Stage gating and checklists** — Before a service request can move to certain stages (e.g., "Scheduled," "Closed"), what must be completed first? Options include checklist fields on the request, required field validation, or sub-tasks. This also relates to the L10 audit requirement (remote solve check, post-service checklists). Stage gating code has been removed from this module pending a design decision.
+Many2one to `nugget.resolution.code` (simple model with `name` and `active` fields). Dropdown on the service request form, required at closeout. Ops team can manage codes from the menu without a developer. Seed with 5-8 initial codes from the team.
 
-2. **Resolution/repair codes** — Service requests need a way to capture why we were called out (e.g., "Component failure," "Preventive maintenance," "User error"). This drives reporting on callout reasons and helps identify recurring issues. Could be a selection field or a configurable many2one.
+This is required for launch. Two charter metrics depend on it: "Resolution time" and "# Emergency Callouts."
 
-3. **Contract routes** — How service contracts flow through the system. TBD.
-:::
+### Required fields by stage
+
+Instead of Python stage gating, use `required` attrs on the form view tied to the stage. XML-only, no Python logic.
+
+- Moving to "Scheduled": service plan must be documented
+- Moving to "Closed": `resolution_code_id` and `notes` are required
+- L10 audit items (remote solve attempted, post-service checklist): boolean fields on the request form, required at the appropriate stage
+
+### Required fields for reporting
+
+`equipment_id` (system) and `task_id` (project task) are required on every service request. If either is missing, the gross-profit-by-contract report breaks because the join path from cost (timesheets) to revenue (subscription) relies on both links being present.
+
+### Contract routes
+
+Not building for launch. The `is_under_contract` computed field on the system record (from `nugget_system_registry`) gives dispatch enough info to determine covered vs billable. Automated routing is Phase 2.
 
 ## Test Plan
 
