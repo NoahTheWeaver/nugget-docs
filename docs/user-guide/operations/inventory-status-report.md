@@ -26,18 +26,3 @@ The report opens with **"Has Stock"** active, hiding products with zero quantity
 ## Changing Columns
 
 The columns on this report are hardcoded to specific warehouse locations. They are not configurable through the Odoo UI. If you need to add a column, change which locations roll up into a column, or rename a column, contact Noah or J2E. This is a code change.
-
-## Open Questions
-
-::: warning Needs input from operations before launch
-The RTS and Awaiting QC columns only count stock in the specific locations listed above. Stock in other locations (e.g., Incoming Inspection, transit locations, or any future locations) shows up in Total On Hand but not in any status column.
-
-**We need Bo to confirm:**
-1. What warehouse locations exist (or should exist) at HOU and Reno?
-2. Which locations roll up into "Ready to Ship"?
-3. Which locations roll up into "Awaiting QC"?
-4. Should there be additional status columns (e.g., Incoming Inspection, In Repair)?
-5. Any locations we're missing?
-
-Email sent to Bo on April 1, 2026.
-:::
