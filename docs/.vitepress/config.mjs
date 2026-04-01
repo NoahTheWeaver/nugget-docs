@@ -86,7 +86,7 @@ export default defineConfig({
             { text: '[TODO] Service Request Management', link: '/user-guide/operations/service-requests' },
             { text: '[TODO] Contract Management', link: '/user-guide/operations/contracts' },
             { text: '[TODO] Receiving & System Intake', link: '/user-guide/operations/receiving' },
-            { text: '[TODO] Inventory Status', link: '/user-guide/operations/inventory' },
+            { text: '[In Progress] Inventory Status Report', link: '/user-guide/operations/inventory-status-report' },
           ],
         },
         {
