@@ -18,7 +18,7 @@ Timesheets logged by FSEs/employees
   → Accounting navigates to review queue
     → Selects unposted timesheet lines
       → Clicks "Create Journal Entry"
-        → Balanced JE created in TSPOST journal
+        → Balanced JE created in Timesheet Posting journal
 ```
 
 ### Journal entry structure
@@ -28,7 +28,7 @@ For each timesheet line, two journal entry lines are created:
 | Line | Account | Amount | Analytic |
 |------|---------|--------|----------|
 | **Debit** | Expense account (from product, employee, or default) | Timesheet cost | Yes — from project's analytic account |
-| **Credit** | TSPOST journal default account | Timesheet cost | No |
+| **Credit** | Timesheet Posting journal's default account | Timesheet cost | No |
 
 The net GL impact is zero. The analytic distribution on the debit line is what captures the cost allocation for reporting.
 
@@ -40,7 +40,7 @@ The module checks for an expense account in this order:
 2. Product category's expense account
 3. Employee's direct `account_id` field
 4. Config parameter: `account_timesheet_posting.timesheet_posting_account_id` (set in Settings)
-5. Fallback: TSPOST journal's default account
+5. Fallback: Timesheet Posting journal's default account
 
 ### How the cost amount is determined
 
@@ -65,7 +65,7 @@ If the timesheet has no analytic distribution set, the module falls back to the 
 
 | Setting | Location | Notes |
 |---------|----------|-------|
-| TSPOST journal | Created automatically at install | Must have `default_account_id` set (credit account) |
+| Timesheet Posting journal | Created automatically at install (journal code: `TSPOST`) | Must have a default account set (used for credit lines) |
 | Default debit account | Settings > Accounting > Timesheet Posting | Fallback when no product/employee account found |
 | Employee hourly cost | Employees > [Employee] > Settings > Hourly Cost | Determines the dollar value per hour |
 
@@ -80,7 +80,7 @@ If the timesheet has no analytic distribution set, the module falls back to the 
 | # | Test | Expected Result |
 |---|------|-----------------|
 | 01 | Log timesheets on a project, navigate to review queue | Unposted timesheets appear in the list |
-| 02 | Select timesheet lines and click Create Journal Entry | Balanced JE created in TSPOST journal with correct debit/credit |
+| 02 | Select timesheet lines and click Create Journal Entry | Balanced JE created in Timesheet Posting journal with correct debit/credit |
 | 03 | Verify posted timesheets disappear from review queue | Posted lines no longer appear |
 
 ### Cost and accounts
