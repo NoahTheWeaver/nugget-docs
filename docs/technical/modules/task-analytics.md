@@ -102,7 +102,7 @@ For cost tracking to work end-to-end, ensure:
 
 | # | Test | Expected Result |
 |---|------|-----------------|
-| 06 | Project and task both have no analytic. Log timesheet. | No crash, timesheet creates normally |
+| 06 | Project and task both have no analytic. Log timesheet. | N/A — Odoo requires a project analytic account to log timesheets |
 | 07 | Per-diem-eligible task with Account A, 8h logged. Change task to Account B. | Pending per diem distribution updates to Account B |
 
 ## Cross-Module Dependencies

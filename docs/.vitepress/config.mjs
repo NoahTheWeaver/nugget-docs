@@ -65,6 +65,7 @@ export default defineConfig({
           text: 'Accounting & Finance',
           items: [
             { text: 'Overview', link: '/user-guide/accounting/' },
+            { text: 'Task-Level Cost Tracking', link: '/user-guide/accounting/task-analytics' },
             { text: 'Per Diem Administration', link: '/user-guide/accounting/per-diem' },
           ],
         },
