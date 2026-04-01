@@ -70,7 +70,7 @@ No settings required. The report auto-discovers components from existing BOMs. T
 |---|------|-----------------|
 | 07 | "Has Inventory" filter (default) | Only components with stock appear |
 | 08 | "Has Mounted" filter | Only components inside assemblies appear |
-| 09 | Component with no BOM | Does not appear in report |
+| 09 | Product that is not listed as a component on any BOM | Does not appear in report |
 
 ## Cross-Module Dependencies
 

@@ -39,6 +39,7 @@ export default defineConfig({
             { text: 'Track Location Analytics', link: '/technical/modules/track-location-analytics' },
             { text: 'Maintenance Checklist', link: '/technical/modules/maintenance-checklist' },
             { text: 'Google Sheet Integration', link: '/technical/modules/google-sheet-integration' },
+            { text: 'Gantt View', link: '/technical/modules/gantt' },
             { text: '[Coming Soon] AI Assistant', link: '/technical/modules/ai-assistant' },
           ],
         },
@@ -81,7 +82,7 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/user-guide/operations/' },
             { text: 'Weekly Timesheet Validation', link: '/user-guide/operations/timesheet-management' },
-            { text: '[TODO] Dispatch & Scheduling', link: '/user-guide/operations/dispatch' },
+            { text: 'Dispatch & Scheduling', link: '/user-guide/operations/dispatch' },
             { text: '[TODO] System Registry', link: '/user-guide/operations/system-registry' },
             { text: '[TODO] Service Request Management', link: '/user-guide/operations/service-requests' },
             { text: '[TODO] Contract Management', link: '/user-guide/operations/contracts' },

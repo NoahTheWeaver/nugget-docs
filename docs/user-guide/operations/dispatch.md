@@ -1,25 +1,72 @@
 # Dispatch & Scheduling
 
-## Creating a Service Task
-When a customer calls or a PM is due — how to create the task, toggle Service Task on, assign the FSE.
-*(coming soon)*
+The Gantt view replaces the Google Sheets resource calendar. One screen shows who's where, when, and doing what.
 
-## Linking Service Requests
-Attaching service requests to the task. Pre-filling the customer and system.
-*(coming soon)*
+Find it at **Project > All Tasks**, then click the Gantt icon (horizontal bars) in the top-right view switcher. Group by **Assignees**.
 
-## Pre-Dispatch Checklist
-What needs to happen before an FSE rolls — remote solve attempted, system info confirmed, parts staged.
-*(coming soon)*
+## Reading the Board
 
-## Assigning and Scheduling
-Picking the right FSE, setting dates, what the FSE sees on their end.
-*(coming soon)*
+Each row is a team member. Each bar is a task. The color of the bar tells you the type of work:
 
-## Multi-Client Trips
-When one trip covers multiple customers — how to set up the tasks, how travel time gets split.
-*(coming soon)*
+| Color | Work Type |
+|---|---|
+| Green | Installs |
+| Violet | Preventive Maintenance |
+| Orange | Repairs |
+| Blue | Refurb & QC |
+| Light Blue | Training |
+| Red | Emergency Callouts |
+| Gray | Shipping & Packing |
 
-## Monitoring In-Progress Work
-How to see what's active, what's overdue, what's waiting on parts.
-*(coming soon)*
+The icon at the start of each bar tells you the scheduling status:
+
+| Icon | Status |
+|---|---|
+| 📋 | Open, needs scheduling |
+| ✏️ | Tentatively scheduled |
+| ✅ | Confirmed with client |
+| ✈️ | Travel booked |
+| 🔧 | In progress |
+| 📦 | Completed, awaiting closeout |
+| ✔️ | Closed |
+| ⏸️ | On hold |
+
+## Scheduling a Task
+
+1. Find a task in the **Open** stage (the unscheduled pile). You can filter by stage or click an empty slot on the Gantt.
+2. Assign it to an FSE and set start/end dates
+3. Move the stage to **Tentatively Scheduled**
+4. Once the client confirms, move to **Confirmed with Client**
+5. Once flights and hotel are booked, move to **Travel Booked**
+
+## Moving Things Around
+
+Drag and drop on the Gantt:
+- Drag left/right to change dates
+- Drag up/down to reassign to a different team member
+- Click a bar to open the task and edit details
+
+## The Twice-Weekly Planning Meeting
+
+This is Bo's tour of the board. Walk through the Gantt left to right:
+- What's happening this week? Next week?
+- Who's overloaded? Who has gaps?
+- Any tentative items that need confirming?
+- Any travel that needs booking?
+- Any tasks stuck on hold?
+
+Use filters to focus: by project (work type), by assignee, by stage.
+
+## Creating a New Task
+
+1. Click an empty slot on the Gantt (pre-fills the assignee and date)
+2. Or go to the project's kanban/list view and create from there
+3. Pick the right project (Installs, PMs, Repairs, etc.)
+4. Fill in the task name (e.g., "PM Vibrant America 6x VV")
+5. It starts in **Open** until you schedule it
+
+## Changing Colors
+
+Project colors are set by the project admin. Go to the project list, click the three-dot menu on a project card, and pick a color dot. That color applies to all tasks in that project on the Gantt.
+
+Stage icons are set in **Project > Configuration > Stages**. Edit a stage and pick an icon from the dropdown.
