@@ -4,13 +4,13 @@ title: Track Location Analytics
 
 # Track Location Analytics
 
-Links inventory transfers to service requests and tracks analytic distributions on stock moves for flagged warehouse locations. Built by J2E.
+Tracks parts and accessories consumed on service work back to the customer's service contract. When an FSE uses a part on a job, this module ensures the cost posts to the right contract's analytic account so we can see the true cost of servicing each contract. Built by J2E.
 
 ## Why This Exists
 
-When parts move through the warehouse (receiving, shipping, consuming on a service call), the cost needs to land on the right analytic account. Standard Odoo tracks analytics on purchase and sale orders, but not on internal transfers or service-related stock moves. This module fills that gap.
+We need to answer: "How much did it cost us in parts to service this contract?" Standard Odoo tracks analytics on purchases and sales, but when parts are consumed on a service call (pulled from warehouse, shipped to a site, swapped during a PM), those costs don't automatically land on the contract's analytic account. This module bridges that gap.
 
-It also connects inventory transfers to service requests, so when an FSE consumes parts on a job, the picking is linked back to the maintenance request for traceability.
+It links inventory transfers to service requests and tags each stock move with the contract's analytic distribution. When the move posts to the GL, the parts cost shows up on the right contract in the P&L.
 
 ## How It Works
 

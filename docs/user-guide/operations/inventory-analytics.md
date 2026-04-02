@@ -1,10 +1,14 @@
-# Tracking Costs on Inventory Moves
+# Tracking Parts Costs to Service Contracts
 
-When parts move through the warehouse, we need to know which project or customer those costs belong to. This is how analytic tracking works on inventory transfers.
+When we use parts on a service call, the cost needs to land on the customer's service contract. That's how we know the true cost of servicing each contract and whether it's profitable.
 
-## When It Applies
+## How It Works
 
-Not every transfer needs analytics. Only transfers involving flagged locations. The following locations are currently flagged for analytic tracking:
+Every service contract has an analytic account. When parts are consumed on a service call (shipped to a customer, swapped during a PM, installed during a repair), the inventory transfer gets tagged with that contract's analytic account. When the transfer posts to the GL, the parts cost shows up on the contract's P&L.
+
+## When You Need to Set the Analytic Account
+
+Transfers involving flagged warehouse locations show an "Analytic Account" field. Set it to the customer's service contract analytic account.
 
 ::: tip Flagged Locations
 This list is maintained by Noah. If a location should be tracked and isn't here, let him know.
@@ -12,29 +16,24 @@ This list is maintained by Noah. If a location should be tracked and isn't here,
 *(List to be finalized before launch)*
 :::
 
-If you don't see an "Analytic Account" field on a transfer, the locations involved aren't flagged. That means the cost doesn't need project-level allocation for that move.
+If you don't see the field, the locations involved aren't flagged and the parts aren't being consumed on contract work.
 
-## Setting the Analytic Account on a Transfer
+## Step by Step
 
-1. Open the transfer (Inventory > Operations > Transfers, or from a service request's Pickings button)
-2. If the "Analytic Account" field is visible, set it to the project or cost center this transfer belongs to
-3. The distribution automatically copies to every line item on the transfer
-4. If one line needs a different account, edit it directly in the operations grid
+1. Open the transfer (from Inventory > Operations > Transfers, or from the service request's truck icon)
+2. Set the **Analytic Account** to the customer's service contract account
+3. The distribution copies to every line item automatically
+4. If one line belongs to a different contract, edit it directly in the operations grid
+5. Validate the transfer. The cost posts to the GL under that contract.
 
 ## Linking Transfers to Service Requests
 
-When parts are consumed on a service call, the transfer should be linked to the service request.
+Every parts transfer for a service call should be linked to the service request. This is how we trace which parts were used on which job.
 
-1. On the transfer form, find the **Maintenance Request** field
-2. Select the service request this transfer is for
-3. The service request now shows a truck icon with the count of linked transfers
+1. On the transfer form, set the **Maintenance Request** field to the service request
+2. The service request's truck icon now shows the count of linked transfers
+3. You can also create transfers from the service request directly by clicking the truck icon
 
-You can also create transfers directly from the service request: open the request, click the truck stat button, and create a new transfer from there.
+## Finding Transfers by Contract
 
-## What Happens to the Numbers
-
-When the transfer is validated, the analytic distribution flows through to the journal entry. The debit side of the GL entry carries the analytic account you set. This is how parts costs show up on project-level P&L reports.
-
-## Finding Transfers by Analytic Account
-
-On the transfer list view, click the **Search Moves** button. A dialog opens where you can select one or more analytic accounts. The list filters to show only transfers that have moves tagged with those accounts.
+On the transfer list view, click **Search Moves**. Select one or more analytic accounts (contracts) and the list filters to show only transfers tagged to those contracts. Use this to review all parts consumed on a specific contract.

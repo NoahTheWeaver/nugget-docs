@@ -88,7 +88,7 @@ export default defineConfig({
             { text: '[TODO] Contract Management', link: '/user-guide/operations/contracts' },
             { text: '[TODO] Receiving & System Intake', link: '/user-guide/operations/receiving' },
             { text: '[In Progress] Inventory Status Report', link: '/user-guide/operations/inventory-status-report' },
-            { text: 'Tracking Costs on Inventory Moves', link: '/user-guide/operations/inventory-analytics' },
+            { text: 'Tracking Parts Costs to Contracts', link: '/user-guide/operations/inventory-analytics' },
           ],
         },
         {
