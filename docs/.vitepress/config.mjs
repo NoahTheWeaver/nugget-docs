@@ -44,6 +44,16 @@ export default defineConfig({
           ],
         },
         {
+          text: 'End-to-End Testing',
+          items: [
+            { text: 'Overview', link: '/technical/e2e-testing/' },
+            { text: 'System Procurement', link: '/technical/e2e-testing/system-procurement' },
+            { text: 'System Sale', link: '/technical/e2e-testing/system-sale' },
+            { text: 'Service Contract Onboarding', link: '/technical/e2e-testing/service-contract' },
+            { text: 'Emergency Dispatch', link: '/technical/e2e-testing/emergency-dispatch' },
+          ],
+        },
+        {
           text: 'Developer Guides',
           items: [
             { text: 'Dev Environment Setup', link: '/technical/dev-setup' },
