@@ -5,7 +5,9 @@ sidebar: false
 
 # Getting Around Wyatt
 
-Every screen in Wyatt uses the same dozen-or-so building blocks.
+Every screen in Wyatt uses the same dozen-or-so building blocks. 
+
+Learn them, and you'll have already mastered about 80% of what you need to know to use Wyatt on an average day.
 
 ## 1. Apps
 

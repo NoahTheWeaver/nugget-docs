@@ -97,7 +97,7 @@ These apps ship with Odoo and you'll see them referenced in Odoo's standard docu
 | <img src="/screenshots/apps/18_documents.png" alt="Documents" width="140" /> | Centralized file repository with folders, tags, and workflows. | Files live on Google Drive or attached directly to records. |
 | <img src="/screenshots/apps/19_shop_floor.png" alt="Shop Floor" width="140" /> | Tablet-optimized MO workstation interface for assembly workers. | Assembly team works from the standard Manufacturing app. |
 | <img src="/screenshots/apps/20_barcode.png" alt="Barcode" width="140" /> | Mobile barcode scanning for inventory transfers, picking, and receipts. | Not part of the current warehouse process. |
-| <img src="/screenshots/apps/24_discuss.png" alt="Discuss" width="140" /> | In-app chat and channels. | Team communication happens on Slack. |
+| <img src="/screenshots/apps/24_discuss.png" alt="Discuss" width="140" /> | In-app chat and channels. | Team communication happens in Google Chat. |
 | <img src="/screenshots/apps/25_attendances.png" alt="Attendances" width="140" /> | Clock-in / clock-out attendance tracking. | Hourly tracking happens via Timesheets, not dedicated attendance. |
 | <img src="/screenshots/apps/26_time_off.png" alt="Time Off" width="140" /> | PTO, sick leave, and other absence requests. | PTO is tracked outside of Wyatt. |
 
