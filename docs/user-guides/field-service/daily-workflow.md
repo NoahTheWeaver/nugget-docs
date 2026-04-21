@@ -52,7 +52,7 @@ If you can't find a task you know you were assigned, check the search bar for ac
 ## Starting the Task
 
 1. Open the task from Kanban or Gantt.
-2. In the [statusbar](/core-concepts#_6-records) (the row of stage buttons across the top of the task form), click **In Progress**.
+2. In the [status bar](/core-concepts#_6-records) (the row of stage buttons across the top of the task form), click **In Progress**.
 3. Go to the **Time Entries** tab and log your start time — or wait and log hours at the end of the day. See [Time Tracking](/user-guides/field-service/time-tracking).
 
 That's it to start. The task is now yours and shows the In Progress stage on the dispatch board.

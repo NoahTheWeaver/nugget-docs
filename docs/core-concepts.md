@@ -13,7 +13,7 @@ Learn them, and you'll have already mastered about 80% of what you need to know 
 
 At its core, Wyatt is a collection of **apps**, all tightly integrated with each other: Field Service, Sales, Inventory, Timesheets, Accounting, and so on. Each app has its own menus, buttons, and way of presenting data.
 
-To switch apps, click the chevron in the upper left-hand corner of the page. The **app launcher** appears, a grid of every app we have installed. Click one to jump in.
+To switch apps, click the arrow in the upper left-hand corner of the page. The **app launcher** appears, a grid of every app we have installed. Click one to jump in.
 
 ![App launcher grid](/screenshots/core-concepts/1.apps.jpeg)
 
@@ -76,7 +76,7 @@ A **record** is a single item from a larger table. (Example: a task, customer, o
 
 Every record view has the same building blocks:
 
-- The **statusbar** across the top shows where the record is in its workflow (see [Record Statuses](#_7-record-statuses)).
+- The **status bar** across the top shows where the record is in its workflow (see [Record Statuses](#_7-record-statuses)).
 - **Header fields** hold the most important information: name, customer, dates, who's assigned.
 - **Smart buttons** in the top-right jump to related records (see [Smart Buttons](#_9-smart-buttons)).
 - The **chatter** on the side or bottom is the running log (see [Chatter](#_10-chatter)).
@@ -84,7 +84,7 @@ Every record view has the same building blocks:
 
 Most of your day in Wyatt is spent inside records.
 
-![A full record view showing the statusbar, header fields, notebook tabs, chatter, and smart buttons](/screenshots/core-concepts/record-view.png)
+![A full record view showing the status bar, header fields, notebook tabs, chatter, and smart buttons](/screenshots/core-concepts/record-view.png)
 
 ## 7. Record Statuses
 
@@ -97,9 +97,9 @@ For example:
 
 You see the same statuses in two places:
 
-- **On the record view**, as a **statusbar** across the top. The current stage is highlighted, future stages sit to the right, past stages sit to the left.
+- **On the record view**, as a **status bar** across the top. The current stage is highlighted, future stages sit to the right, past stages sit to the left.
 
-![Statusbar at the top of a record view](/screenshots/core-concepts/record-statuses-form.png)
+![Status bar at the top of a record view](/screenshots/core-concepts/record-statuses-form.png)
 
 - **On the kanban view of the table**, as column headers. Each column is one status. Cards grouped by stage make it easy to see the whole pipeline at once.
 
@@ -107,8 +107,8 @@ You see the same statuses in two places:
 
 **How to advance a record:**
 
-- On many workflows (tasks, CRM opportunities, service requests), click a future stage on the statusbar or drag a kanban card into a new column.
-- On others (sales orders, invoices, purchase orders), the workflow is gated by action buttons in the record header like *Confirm* or *Validate*, not by clicking the statusbar.
+- On many workflows (tasks, CRM opportunities, service requests), click a future stage on the status bar or drag a kanban card into a new column.
+- On others (sales orders, invoices, purchase orders), the workflow is gated by action buttons in the record header like *Confirm* or *Validate*, not by clicking the status bar.
 
 ## 8. Breadcrumbs
 
@@ -116,7 +116,7 @@ When you click from a table into a record (or from one record into a related one
 
 ![Breadcrumb trail at the top of a record](/screenshots/core-concepts/breadcrumbs.png)
 
-::: warning Use breadcrumbs, not the back button
+::: danger ⚠️ Heads-up: use breadcrumbs, not the back button
 Get in the habit of clicking the breadcrumbs rather than the browser's back button. It's more reliable: the back button can drop unsaved edits or land you on a stale view.
 :::
 
