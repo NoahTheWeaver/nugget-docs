@@ -6,9 +6,9 @@ title: Why Wyatt
 
 ## What Is This?
 
-Wyatt is the codename for Nugget Scientific's ERP[^erp] system, built on Odoo 19 Enterprise. It replaces a patchwork of QuickBooks, a custom-built CRM, and Google Sheets with a single platform that handles accounting, inventory, field service, sales, and purchasing.
+Wyatt is the codename for Nugget Scientific's ERP\* system, built on Odoo 19 Enterprise. It replaces a patchwork of QuickBooks, a custom-built CRM, and Google Sheets with a single platform that handles accounting, inventory, field service, sales, and purchasing.
 
-[^erp]: Enterprise resource planning. The one tool that runs the back of the house. Don't worry, we'll never use this term again.
+*\*ERP = enterprise resource planning. The one tool that runs the back of the house. Don't worry, we'll never use this term again.*
 
 ## Why Are We Doing This?
 
