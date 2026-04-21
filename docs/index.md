@@ -10,20 +10,23 @@ hero:
       text: Why Wyatt
       link: /why-wyatt
     - theme: alt
-      text: User Guide
-      link: /user-guide/
+      text: Core Concepts
+      link: /core-concepts
     - theme: alt
-      text: Technical Docs
-      link: /technical/
+      text: User Guides
+      link: /user-guides/
 
 features:
   - title: Field Service
     details: Schedules, timesheets, per diem, service requests, and dispatch workflows.
-    link: /user-guide/field-service/  
+    link: /user-guides/field-service/
+  - title: Sales
+    details: Quoting, system sales, service contract sales, and pipeline management.
+    link: /user-guides/sales/
   - title: Operations
-    details: Inventory, purchasing, sales orders, shipping, receiving, and BOMs.
-    link: /user-guide/operations/
+    details: Inventory, purchasing, receiving, shipping, and assembly.
+    link: /user-guides/operations/
   - title: Accounting & Finance
     details: Financial close, AP/AR, analytic accounts, and management reporting.
-    link: /user-guide/accounting/
+    link: /user-guides/accounting/
 ---

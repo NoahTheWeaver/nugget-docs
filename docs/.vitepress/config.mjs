@@ -10,9 +10,25 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Why Wyatt', link: '/why-wyatt' },
-      { text: 'Technical', link: '/technical/' },
-      { text: 'User Guide', link: '/user-guide/' },
+      {
+        text: 'Getting Started',
+        items: [
+          { text: 'Why Wyatt', link: '/why-wyatt' },
+          { text: 'Core Concepts', link: '/core-concepts' },
+          { text: 'Apps Overview', link: '/user-guides/apps' },
+        ],
+      },
+      {
+        text: 'User Guides',
+        items: [
+          { text: 'Overview', link: '/user-guides/' },
+          { text: 'Field Service', link: '/user-guides/field-service/' },
+          { text: 'Sales', link: '/user-guides/sales/' },
+          { text: 'Operations', link: '/user-guides/operations/' },
+          { text: 'Accounting & Finance', link: '/user-guides/accounting/' },
+        ],
+      },
+      { text: 'Technical Docs', link: '/technical/' },
     ],
 
     sidebar: {
@@ -61,55 +77,78 @@ export default defineConfig({
           ],
         },
       ],
-      '/user-guide/': [
-        {
-          text: 'User Guide',
-          items: [
-            { text: 'Overview', link: '/user-guide/' },
-          ],
-        },
-        {
-          text: 'Sales',
-          items: [
-            { text: 'Overview', link: '/user-guide/sales/' },
-            { text: '[TODO] Quoting & Proposals', link: '/user-guide/sales/quoting' },
-            { text: '[TODO] System Sale End-to-End', link: '/user-guide/sales/system-sale' },
-            { text: '[TODO] Service Contract Sale', link: '/user-guide/sales/service-contract-sale' },
-            { text: '[TODO] Pipeline & Forecasting', link: '/user-guide/sales/pipeline' },
-          ],
-        },
+
+      '/user-guides/field-service/': [
         {
           text: 'Field Service',
           items: [
-            { text: 'Overview', link: '/user-guide/field-service/' },
-            { text: 'Time Tracking & Per Diem', link: '/user-guide/field-service/time-tracking' },
-            { text: '[TODO] Service Requests', link: '/user-guide/field-service/service-requests' },
-            { text: '[TODO] Logging Parts & Materials', link: '/user-guide/field-service/parts' },
+            { text: 'Overview', link: '/user-guides/field-service/' },
+            { text: 'Your Daily Workflow', link: '/user-guides/field-service/daily-workflow' },
+            { text: 'Viewing Your Schedule', link: '/user-guides/field-service/schedule' },
+            { text: 'Service Requests', link: '/user-guides/field-service/service-requests' },
+            { text: 'Time Tracking & Per Diem', link: '/user-guides/field-service/time-tracking' },
+            { text: 'Logging Parts & Materials', link: '/user-guides/field-service/parts' },
+            { text: 'Completing Service Checklists', link: '/user-guides/field-service/checklists' },
+            { text: 'Emergency Dispatch (FSE View)', link: '/user-guides/field-service/emergency-dispatch' },
           ],
         },
+      ],
+
+      '/user-guides/sales/': [
+        {
+          text: 'Sales',
+          items: [
+            { text: 'Overview', link: '/user-guides/sales/' },
+            { text: '[TODO] Quoting & Proposals', link: '/user-guides/sales/quoting' },
+            { text: '[TODO] System Sale End-to-End', link: '/user-guides/sales/system-sale' },
+            { text: '[TODO] Service Contract Sale', link: '/user-guides/sales/service-contract-sale' },
+            { text: '[TODO] Pipeline & Forecasting', link: '/user-guides/sales/pipeline' },
+          ],
+        },
+      ],
+
+      '/user-guides/operations/': [
         {
           text: 'Operations',
           items: [
-            { text: 'Overview', link: '/user-guide/operations/' },
-            { text: 'Weekly Timesheet Validation', link: '/user-guide/operations/timesheet-management' },
-            { text: 'Dispatch & Scheduling', link: '/user-guide/operations/dispatch' },
-            { text: '[TODO] System Registry', link: '/user-guide/operations/system-registry' },
-            { text: '[TODO] Service Request Management', link: '/user-guide/operations/service-requests' },
-            { text: '[TODO] Contract Management', link: '/user-guide/operations/contracts' },
-            { text: '[TODO] Receiving & System Intake', link: '/user-guide/operations/receiving' },
-            { text: '[In Progress] Inventory Status Report', link: '/user-guide/operations/inventory-status-report' },
-            { text: 'Tracking Parts Costs to Contracts', link: '/user-guide/operations/inventory-analytics' },
+            { text: 'Overview', link: '/user-guides/operations/' },
+            { text: 'Weekly Timesheet Validation', link: '/user-guides/operations/timesheet-management' },
+            { text: 'Dispatch & Scheduling', link: '/user-guides/operations/dispatch' },
+            { text: '[TODO] System Registry', link: '/user-guides/operations/system-registry' },
+            { text: '[TODO] Service Request Management', link: '/user-guides/operations/service-requests' },
+            { text: '[TODO] Contract Management', link: '/user-guides/operations/contracts' },
+            { text: '[TODO] Receiving & System Intake', link: '/user-guides/operations/receiving' },
+            { text: '[In Progress] Inventory Status Report', link: '/user-guides/operations/inventory-status-report' },
+            { text: 'Tracking Parts Costs to Contracts', link: '/user-guides/operations/inventory-analytics' },
           ],
         },
+      ],
+
+      '/user-guides/accounting/': [
         {
           text: 'Accounting & Finance',
           items: [
-            { text: 'Overview', link: '/user-guide/accounting/' },
-            { text: 'Posting Timesheets to GL', link: '/user-guide/accounting/timesheet-posting' },
-            { text: 'Task-Level Cost Tracking', link: '/user-guide/accounting/task-analytics' },
-            { text: 'Per Diem Administration', link: '/user-guide/accounting/per-diem' },
-            { text: '[TODO] Service Contract Revenue', link: '/user-guide/accounting/contract-revenue' },
-            { text: '[TODO] Monthly Financial Close', link: '/user-guide/accounting/financial-close' },
+            { text: 'Overview', link: '/user-guides/accounting/' },
+            { text: 'Posting Timesheets to GL', link: '/user-guides/accounting/timesheet-posting' },
+            { text: 'Task-Level Cost Tracking', link: '/user-guides/accounting/task-analytics' },
+            { text: 'Per Diem Administration', link: '/user-guides/accounting/per-diem' },
+            { text: '[TODO] Service Contract Revenue', link: '/user-guides/accounting/contract-revenue' },
+            { text: '[TODO] Monthly Financial Close', link: '/user-guides/accounting/financial-close' },
+          ],
+        },
+      ],
+
+      // Overview — matched only when on /user-guides/ exactly (shortest prefix).
+      // Each role's sidebar takes over for deeper paths above.
+      '/user-guides/': [
+        {
+          text: 'User Guides',
+          items: [
+            { text: 'Overview', link: '/user-guides/' },
+            { text: 'Field Service', link: '/user-guides/field-service/' },
+            { text: 'Sales', link: '/user-guides/sales/' },
+            { text: 'Operations', link: '/user-guides/operations/' },
+            { text: 'Accounting & Finance', link: '/user-guides/accounting/' },
           ],
         },
       ],

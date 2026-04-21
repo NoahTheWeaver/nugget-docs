@@ -2,3 +2,7 @@ node_modules/
 **/.vitepress/cache/
 **/.vitepress/dist/
 .DS_Store
+
+# Staging area for raw screenshots before they're copied into docs/public/
+# (anchored to repo root so we don't accidentally ignore docs/public/screenshots/)
+/screenshots/
