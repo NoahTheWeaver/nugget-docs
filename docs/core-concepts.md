@@ -116,10 +116,6 @@ When you click from a table into a record (or from one record into a related one
 
 ![Breadcrumb trail at the top of a record](/screenshots/core-concepts/breadcrumbs.png)
 
-::: danger ⚠️ Heads-up: use breadcrumbs, not the back button
-Get in the habit of clicking the breadcrumbs rather than the browser's back button. It's more reliable: the back button can drop unsaved edits or land you on a stale view.
-:::
-
 ## 9. Smart Buttons
 
 Smart buttons are the fastest way to switch between things related to a given record view.
