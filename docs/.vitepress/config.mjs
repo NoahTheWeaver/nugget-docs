@@ -29,6 +29,7 @@ export default defineConfig({
         ],
       },
       { text: 'Technical Docs', link: '/technical/' },
+      { text: 'Feedback', link: '/feedback' },
     ],
 
     sidebar: {
