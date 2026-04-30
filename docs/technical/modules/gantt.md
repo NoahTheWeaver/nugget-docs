@@ -49,12 +49,12 @@ All projects share the same scheduling stages:
 | Stage | Icon | Meaning |
 |---|---|---|
 | Open | 📋 | Needs scheduling |
-| Tentatively Scheduled | ✏️ | Dates penciled in, not confirmed |
-| Confirmed with Client | ✅ | Client confirmed, dates locked |
-| Travel Booked | ✈️ | Flights and hotel booked |
+| Pencilled In | ✏️ | Dates penciled in, not confirmed |
+| Confirmed with Client | 🤝 | Client confirmed, dates locked |
+| Fully Scheduled | ✈️ | Travel and resources booked |
 | In Progress | 🔧 | FSE actively working |
-| Completed - Awaiting Closeout | 📦 | Work done, reports pending |
-| Closed | ✔️ | Fully closed (folded) |
+| Completed - Awaiting Closeout | 📝 | Work done, reports pending |
+| Closed | ✅ | Fully closed (folded) |
 | On Hold | ⏸️ | Blocked |
 
 Set icons from Project > Configuration > Stages > edit a stage > Icon field.
@@ -72,9 +72,9 @@ Set icons from Project > Configuration > Stages > edit a stage > Icon field.
 1. Tasks start in **Open** (the unscheduled pile)
 2. Dispatcher opens the Gantt, clicks an empty slot on an FSE's row
 3. Assigns the task, sets dates
-4. Moves stage to **Tentatively Scheduled**
+4. Moves stage to **Pencilled In**
 5. After client confirms: **Confirmed with Client**
-6. After booking travel: **Travel Booked**
+6. After booking travel: **Fully Scheduled**
 7. FSE starts work: **In Progress**
 8. FSE finishes: **Completed - Awaiting Closeout**
 9. Reports filed, parts accounted for: **Closed**

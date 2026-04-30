@@ -32,7 +32,7 @@ Note: the purchase configurator (nugget_purchase_configurator) is for Purchase O
 | Step | Who | What happens in Odoo | Check |
 |------|-----|---------------------|-------|
 | 8 | PM | Create task in the Installs project, assign FSE | |
-| 9 | PM | Schedule on Gantt, move to Tentatively Scheduled | |
+| 9 | PM | Schedule on Gantt, move to Pencilled In | |
 | 10 | Warehouse Sup | Is there an RTS unit with the right config? | |
 | 11a | (If no/wrong config) | Create refurb task. If MO reconfig needed, verify system record product_id updates after MO completes. | |
 | 11b | (If RTS) | Proceed to shipping | |
@@ -42,7 +42,7 @@ Note: the purchase configurator (nugget_purchase_configurator) is for Purchase O
 | Step | Who | What happens in Odoo | Check |
 |------|-----|---------------------|-------|
 | 12 | PM | Confirm with client, move task to Confirmed with Client | |
-| 13 | PM | Book travel, move task to Travel Booked | |
+| 13 | PM | Book travel, move task to Fully Scheduled | |
 | 14 | | Verify: Gantt icons update at each stage change | |
 
 ## Phase 5: Ship and Install

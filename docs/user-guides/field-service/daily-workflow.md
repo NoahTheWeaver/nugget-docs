@@ -26,12 +26,12 @@ Every task moves through the same stages. You'll see the current stage as a colo
 | Icon | Stage | Who moves it |
 |------|-------|--------------|
 | 📋 | Open | Dispatcher (creates task) |
-| ✏️ | Tentatively Scheduled | Dispatcher |
-| ✅ | Confirmed with Client | Dispatcher |
-| ✈️ | Travel Booked | Dispatcher |
+| ✏️ | Pencilled In | Dispatcher |
+| 🤝 | Confirmed with Client | Dispatcher |
+| ✈️ | Fully Scheduled | Dispatcher |
 | 🔧 | In Progress | **You**, when you start work |
-| 📦 | Completed – Awaiting Closeout | **You**, when you finish |
-| ✔️ | Closed | Dispatcher |
+| 📝 | Completed – Awaiting Closeout | **You**, when you finish |
+| ✅ | Closed | Dispatcher |
 | ⏸️ | On Hold | Dispatcher |
 
 You own two transitions: **→ In Progress** and **→ Completed – Awaiting Closeout**. Everything else is dispatch.

@@ -23,21 +23,21 @@ The icon at the start of each bar tells you the scheduling status:
 | Icon | Status |
 |---|---|
 | 📋 | Open, needs scheduling |
-| ✏️ | Tentatively scheduled |
-| ✅ | Confirmed with client |
-| ✈️ | Travel booked |
+| ✏️ | Pencilled in |
+| 🤝 | Confirmed with client |
+| ✈️ | Fully scheduled |
 | 🔧 | In progress |
-| 📦 | Completed, awaiting closeout |
-| ✔️ | Closed |
+| 📝 | Completed, awaiting closeout |
+| ✅ | Closed |
 | ⏸️ | On hold |
 
 ## Scheduling a Task
 
 1. Find a task in the **Open** stage (the unscheduled pile). You can filter by stage or click an empty slot on the Gantt.
 2. Assign it to an FSE and set start/end dates
-3. Move the stage to **Tentatively Scheduled**
+3. Move the stage to **Pencilled In**
 4. Once the client confirms, move to **Confirmed with Client**
-5. Once flights and hotel are booked, move to **Travel Booked**
+5. Once flights and hotel are booked, move to **Fully Scheduled**
 
 ## Moving Things Around
 

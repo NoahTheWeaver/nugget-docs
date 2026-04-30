@@ -34,7 +34,7 @@ Time this. If the dispatcher can't answer "covered or billable?" in 30 seconds, 
 |------|-----|---------------------|-------|
 | 8 | Dispatcher | Check Gantt for FSE availability | |
 | 9 | Dispatcher | Move to Confirmed with Client (emergency = likely immediate) | |
-| 10 | Dispatcher | Book travel if needed, move to Travel Booked | |
+| 10 | Dispatcher | Book travel if needed, move to Fully Scheduled | |
 | 11 | | Verify: Gantt shows the callout in red (Emergency Callouts project color) | |
 
 ## Phase 4: On-Site Repair
