@@ -8,8 +8,6 @@ title: Why Wyatt
 
 Wyatt is our new software toolbox for sales, operations, service, and accounting. It's replacing a patchwork of QuickBooks, a custom-built CRM, and a pile of Google Sheets with one platform.
 
-The technical name is Odoo 19 Enterprise. Wyatt is what we call our copy of it.
-
 ## Why Are We Doing This?
 
 None of us needed another project. So why are we doing it?
