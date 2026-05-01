@@ -89,6 +89,7 @@ export default defineConfig({
             { text: 'Variance Triage', link: '/training/trial-balance/variance-triage' },
             { text: 'Reversing Entries', link: '/training/trial-balance/reversing-entries' },
             { text: 'Cheat Sheet', link: '/training/trial-balance/cheat-sheet' },
+            { text: 'Screenshots TODO', link: '/training/trial-balance/screenshots-todo' },
           ],
         },
       ],

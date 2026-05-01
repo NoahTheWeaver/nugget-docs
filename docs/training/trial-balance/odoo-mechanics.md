@@ -57,19 +57,39 @@ A caveat for the May 2026 cutover: comparison columns that span the QB→Wyatt b
 
 ## Audit working files (the real audit-status mechanism)
 
-Wyatt has a passive audit-status feature that the documentation makes look easy. It isn't passive. To use it:
+Wyatt has a passive audit-status feature that the documentation makes look easy. It isn't passive. Click-by-click:
 
-1. **Accounting → Review → Audit → Working Files** (intermediate menu is "Audit", final list is "Working Files"). Click **New** to create a working file for the period (e.g., 2026-02).
-2. Open the Trial Balance from inside the audit working file (the working file shows links to the supported reports).
-3. Inside the working-file context, every TB row now has an audit-status icon with four states (technical key → UI label):
-   - `todo` → **To Review**
-   - `reviewed` → **Reviewed**
-   - `supervised` → **Supervised**
-   - `anomaly` → **Anomaly**
-4. Click the status to set it. The status is stored on `account.audit.account.status`, which is timestamped and tied to the working file.
-5. Coming back the next day, re-open the TB *from inside the same working file* to see what's marked.
+**1. Open the Audit menu.**
 
-If you open the TB from the regular Reporting menu, the audit-status icons do not appear. The feature is real and useful; the access path is non-obvious.
+In the top navigation, click **Accounting**. Hover the menu bar; you'll see top-level menu items like *Customers*, *Vendors*, *Accounting*, *Reporting*, *Review*, *Configuration*. Click **Review**.
+
+**2. Drill to Working Files.**
+
+The Review menu opens a sub-tree. Hover **Audit** (it's a sub-menu, not a leaf). The Audit sub-menu shows: *Working Files*, *Logs*, and a few others. Click **Working Files**.
+
+**3. Create the working file for the period.**
+
+You're now on the Working Files list view. Click the purple **New** button (top-left). The new-record form has a header area with a Type field (defaults to Account Audit), a Date From field, a Date To field, and a Company field (Nugget Scientific). Below the header is a tab strip with Reports / Status / Notes tabs. The Reports tab is the one you'll use most: it shows clickable links to Trial Balance, Balance Sheet, Profit & Loss, Aged Receivable, Aged Payable, and General Ledger.
+
+Set Type = Account Audit (default). Date From = first day of period. Date To = last day. Save (Cmd+S, or click the cloud-save icon in the breadcrumb).
+
+The working file is now persistent and you can return to it later.
+
+**4. Open the Trial Balance from inside the working file.**
+
+On the saved working file's Reports tab, click **Trial Balance**. The TB opens *with audit-status icons* immediately to the left of each account name. The icons render as small colored dots: gray = To Review, green = Reviewed, blue = Supervised, red = Anomaly.
+
+**5. Working with the badges.**
+
+- Click the dot next to an account row. A small dropdown menu appears with the four status choices (To Review / Reviewed / Supervised / Anomaly).
+- Click **Reviewed**. The dropdown closes and the dot turns green. The change saves immediately (no Save button needed).
+- Status persists across sessions, tied to the working file. Closing the browser doesn't reset it.
+
+**6. Coming back the next day.**
+
+Repeat step 1–2 to navigate to Working Files. Click the *2026-02 Close* working file in the list. Click Trial Balance from its Reports tab. The badges from yesterday are still set. Continue marking the rest.
+
+**Critical:** if you open the TB from **Accounting → Reporting → Ledgers → Trial Balance** (the regular path), the audit-status icons **do not appear**. They're working-file-context-only. This is the single most-misunderstood thing about Wyatt's audit feature.
 
 ## Exporting
 
@@ -83,7 +103,45 @@ Export to XLSX at every close as the audit trail. File-naming convention: `YYYY-
 
 ## Lock dates
 
-Set via the wizard at **Accounting → Accounting → Closing → Lock Dates…** The wizard window title is "Lock Journal Entries"; the menu label is "Lock Dates…" (with a Unicode ellipsis U+2026, not three ASCII dots; Cmd+F searches against the Unicode form). Model: `account.change.lock.date`. The Settings page does *not* expose these fields directly in 19.1.
+Click-by-click:
+
+**1. Open the wizard.**
+
+Top nav → **Accounting** → **Accounting** (the second-level "Accounting" menu inside the app, not the app launcher) → **Closing** → **Lock Dates…**
+
+The menu label uses a Unicode ellipsis (U+2026), not three ASCII dots. Cmd+F searches against the Unicode form, so type "Lock Dates" and stop before the dot to find it.
+
+**2. The wizard layout.**
+
+A modal dialog opens, window title "Lock Journal Entries". The form has five date-input fields stacked vertically, each with a calendar-icon picker:
+
+- **Lock Everything**
+- **Lock Tax Return**
+- **Lock Sales**
+- **Lock Purchases**
+- **Hard Lock**
+
+Below the fields are **Cancel** and **Confirm** buttons.
+
+Set the dates you want. The most common monthly close action is **Lock Everything = period-end date**. Leave the other four blank unless Cooper directs.
+
+**3. The exception alert (if you set a date that blocks a needed back-post).**
+
+If your input date would block a needed back-post (rare in normal close, common during cutover cleanups), the wizard expands to show an inline yellow alert below the date fields. The alert contains three additional inputs:
+
+- **Applies To** — dropdown with two options: "Just me" or "Everyone".
+- **Duration** — dropdown constrained to: 5 minutes, 15 minutes, 1 hour, 24 hours, or forever.
+- **Reason** — single-line text field.
+
+The Confirm button text changes to **Confirm with Exception**.
+
+For a typical Cooper-supervised correction: set Applies To = "Just me", Duration = "24 hours", Reason = "Cooper-approved correction to April [details]". This creates an `account.lock_exception` record that auto-expires after 24 hours.
+
+**Edge case to remember:** Applies To = "Everyone" combined with Duration = "forever" does *not* create an exception record. Wyatt treats that combination as a normal lock-date adjustment and silently moves the lock backward with no audit row. Avoid that combo unless you genuinely intend to roll the lock back permanently for everyone.
+
+For Hard Lock, the alert never offers an exception. That's the point.
+
+Model: `account.change.lock.date`. The Settings page does *not* expose these fields directly in 19.1.
 
 The wizard exposes all five fields with the labels Andrea will actually see:
 
@@ -105,13 +163,25 @@ Best practice: lock the period the day Andrea signs off the close. Not earlier. 
 
 ## Drilling into a balance
 
-Every cell on the Trial Balance is clickable. Click a balance to open the General Ledger filtered to that account, in that period, with all the underlying journal items. From there:
+The drill is the most important triage tool in Wyatt. Step-by-step:
 
-- Click a journal item to see the JE that posted it.
-- Click the JE to see the source document (invoice, bill, payment).
-- Drill into the source document to see the original posting.
+**1. Start at the Trial Balance**, opened from inside an audit working file (so you have audit badges visible as you go).
 
-This is the primary tool for variance triage. Top-down, click-through, never speculative. Spend time learning the GL drill before the first real close.
+The TB layout is a list view: leftmost column is the audit-status dot, then Code, Account name, Debit, Credit. The header strip shows the as-of date filter and Comparison / Filters / Export buttons on the right. Numeric balance cells are clickable links.
+
+**2. Click any balance cell** (say, the AR balance row 1200, $142,837.50).
+
+The view drills to the **General Ledger**, filtered to account 1200 for the period. You see every journal item that posted to the account: opening balance row, then one row per journal item (date, JE reference, partner, memo, debit, credit), then total and ending-balance rows at the bottom.
+
+**3. Click any journal item** (say, INV/2026/0001 for Acme Labs).
+
+The view jumps to the parent journal entry (`account.move`). The form shows the JE header (Status, Date, Journal, Partner, Reference) and a journal-items table with each debit and credit line. Near the Reference field there's typically a chip-link back to the source document (Sale Order, Vendor Bill, etc.).
+
+**4. Click the source link.** You're now on the originating sale order, vendor bill, or customer invoice. Inspect to confirm the posting matches reality.
+
+**5. Use breadcrumbs** (top-left of the form view, the chevron-separated path) to walk back up: source ← JE ← GL ← TB ← working file. Each click in the breadcrumb returns you to the prior view without losing your place in the audit working file.
+
+Top-down, click-through, never speculative. Spend twenty minutes practicing this drill before the first real close.
 
 ## Finding draft journal entries
 

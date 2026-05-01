@@ -54,7 +54,38 @@ The reference field uses a consistent prefix (`ACCR-YYYY-MM-...`) to make the en
 
 ## Reversing in Wyatt
 
-On the posted accrual JE, click **Reverse Entry** (singular). A wizard opens (window title: "Reverse Journal Entry"; model: `account.move.reversal`).
+Click-by-click:
+
+**1. Open the original accrual JE.**
+
+Top nav → **Accounting** → **Accounting** → **Transactions** → **Journal Entries**. Filter to your reference prefix (e.g., type `ACCR-2026-02` in the search). Click the entry to open it.
+
+**2. Click Reverse Entry.**
+
+On the posted JE form, the action menu (top, near "Cog ⚙" or three-dot menu) shows a button labeled **Reverse Entry** (singular). Click it.
+
+**3. The wizard layout.**
+
+A modal opens, window title "Reverse Journal Entry". The form is small: two input fields and two buttons.
+
+- **Date** field with a calendar-icon picker. This is the date the reversing JE will post.
+- **Journal** dropdown (defaults to the same journal as the original; leave it).
+- **Cancel** button and **Reverse** button at the bottom.
+
+That's all. No Auto Post checkbox, no Refund Method dropdown, no Reason field (Reason exists on the model but is invisible for `move_type='entry'`). Two fields, one button.
+
+**4. Set the Date.**
+
+For routine accruals: first day of the next period (March 1, 2026 for a Feb 28 accrual). **Always the first of next period, regardless of when you click the wizard.** If you're closing late and clicking on March 15, the reversal date is still March 1.
+
+**5. Click Reverse.**
+
+What happens depends on the date:
+
+- **Date strictly later than today** → Wyatt creates a Draft reversal with the **Auto Post: At Date** flag set on the new JE. The cron `account.ir_cron_auto_post_draft_entry` flips it to Posted on the chosen date.
+- **Date today or earlier** → Wyatt posts the reversal immediately. No auto-post involved.
+
+Model: `account.move.reversal`.
 
 For an accrual JE (`move_type = 'entry'`), the wizard shows two fields:
 
