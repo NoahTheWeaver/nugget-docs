@@ -70,7 +70,6 @@ Smaller apps you'll pull up as needed, not daily.
 
 | App | What it's for | Used most by |
 |:-:|---|---|
-| <img src="/screenshots/apps/14_to_do.png" alt="To-Do" width="140" /> | Your personal to-do list inside Wyatt. Separate from record activities. | Everyone |
 | <img src="/screenshots/apps/13_surveys.png" alt="Surveys" width="140" /> | Internal and external forms. Used for feedback, intake, and structured questionnaires. | Ops, HR |
 | <img src="/screenshots/apps/22_sign.png" alt="Sign" width="140" /> | Electronic signature on contracts, quotes, and other documents. | Sales, leadership, operations |
 
@@ -93,6 +92,7 @@ These apps ship with Odoo and you'll see them referenced in Odoo's standard docu
 | App | What it's for (in standard Odoo) | Why we don't use it |
 |:-:|---|---|
 | <img src="/screenshots/apps/12_calendar.png" alt="Calendar" width="140" /> | Meeting calendar with event invites. | Team uses Google Calendar as the source of truth for meetings. |
+| <img src="/screenshots/apps/14_to_do.png" alt="To-Do" width="140" /> | Personal to-do list inside Odoo, separate from record activities. | Activities attached to records (chatter) are the canonical to-do mechanism in Wyatt. A second personal-list app creates duplicate tracking with no link back to the work it's about. |
 | <img src="/screenshots/apps/16_knowledge.png" alt="Knowledge" width="140" /> | Internal wiki and knowledge base. | Wyatt docs (this site) serve that purpose. |
 | <img src="/screenshots/apps/18_documents.png" alt="Documents" width="140" /> | Centralized file repository with folders, tags, and workflows. | Files live on Google Drive or attached directly to records. |
 | <img src="/screenshots/apps/19_shop_floor.png" alt="Shop Floor" width="140" /> | Tablet-optimized MO workstation interface for assembly workers. | Assembly team works from the standard Manufacturing app. |
