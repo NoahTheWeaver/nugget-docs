@@ -1,21 +1,14 @@
 ---
-title: Apps Overview
+title: The Wyatt Toolbox
 sidebar: false
 ---
 
-# The Apps in Wyatt
+# The Wyatt Toolbox
 
-Wyatt is a collection of apps. This page is a quick tour of what lives in each, and who spends the most time there.
+Wyatt is a toolbox. Each app is one tool. This page is the labeled drawer.
 
 ::: warning You won't use all of these
-There's a lot on this page. **Most people use four or five apps a day, not twenty.** The rest are here so you can recognize them when you see them referenced elsewhere.
-
-For the apps you'll actually live in, skim the role-based guides:
-
-- [Sales](/user-guides/sales/): Sales, CRM, Contacts, Subscriptions
-- [Field Service](/user-guides/field-service/): Project, Service, Timesheets, Helpdesk
-- [Operations](/user-guides/operations/): Inventory, Purchase, Manufacturing, Quality
-- [Accounting & Finance](/user-guides/accounting/): Accounting, Timesheets, Subscriptions
+Most people use four or five apps a day, not twenty. The rest are here so you can recognize them when you see them referenced elsewhere.
 :::
 
 ## Start Here
@@ -93,7 +86,7 @@ These apps ship with Odoo and you'll see them referenced in Odoo's standard docu
 |:-:|---|---|
 | <img src="/screenshots/apps/12_calendar.png" alt="Calendar" width="140" /> | Meeting calendar with event invites. | Team uses Google Calendar as the source of truth for meetings. |
 | <img src="/screenshots/apps/14_to_do.png" alt="To-Do" width="140" /> | Personal to-do list inside Odoo, separate from record activities. | Activities attached to records (chatter) are the canonical to-do mechanism in Wyatt. A second personal-list app creates duplicate tracking with no link back to the work it's about. |
-| <img src="/screenshots/apps/16_knowledge.png" alt="Knowledge" width="140" /> | Internal wiki and knowledge base. | Wyatt docs (this site) serve that purpose. |
+| <img src="/screenshots/apps/16_knowledge.png" alt="Knowledge" width="140" /> | Internal wiki and knowledge base. | Wyatt's documentation site (this one) serves that purpose. |
 | <img src="/screenshots/apps/18_documents.png" alt="Documents" width="140" /> | Centralized file repository with folders, tags, and workflows. | Files live on Google Drive or attached directly to records. |
 | <img src="/screenshots/apps/19_shop_floor.png" alt="Shop Floor" width="140" /> | Tablet-optimized MO workstation interface for assembly workers. | Assembly team works from the standard Manufacturing app. |
 | <img src="/screenshots/apps/20_barcode.png" alt="Barcode" width="140" /> | Mobile barcode scanning for inventory transfers, picking, and receipts. | Not part of the current warehouse process. |
@@ -116,6 +109,5 @@ The apps share data through a single underlying database. Every task, customer, 
 
 ## Where to Go Next
 
-- For the building blocks every app shares (records, tables, chatter, search), see [Core Concepts](/core-concepts).
-- For role-based walkthroughs of specific workflows, see [User Guides](/user-guides/).
+- For the building blocks every tool shares (records, tables, chatter, search), see [Core Concepts](/core-concepts).
 - For technical module documentation, see [Technical Docs](/technical/).

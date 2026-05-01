@@ -19,7 +19,7 @@ export default defineConfig({
         items: [
           { text: 'Why Wyatt', link: '/why-wyatt' },
           { text: 'Core Concepts', link: '/core-concepts' },
-          { text: 'Apps Overview', link: '/user-guides/apps' },
+          { text: 'The Wyatt Toolbox', link: '/user-guides/apps' },
         ],
       },
       { text: 'Technical Docs', link: '/technical/' },

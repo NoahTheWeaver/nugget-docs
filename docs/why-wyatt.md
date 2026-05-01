@@ -6,17 +6,17 @@ title: Why Wyatt
 
 ## What Is This?
 
-Wyatt is the codename for Nugget Scientific's new software system, built on Odoo 19 Enterprise. It's replacing a patchwork of QuickBooks, a custom-built CRM, and a pile of Google Sheets with a single platform that handles accounting, inventory, field service, sales, and purchasing.
+Wyatt is our new software toolbox for sales, operations, service, and accounting. It's replacing a patchwork of QuickBooks, a custom-built CRM, and a pile of Google Sheets with one platform.
+
+The technical name is Odoo 19 Enterprise. Wyatt is what we call our copy of it.
 
 ## Why Are We Doing This?
 
-Wyatt exists to make Nugget more efficient and easier to understand, so we can serve our customers better.
+None of us needed another project. So why are we doing it?
 
-Specifically, here are the three problems we're trying to solve:
-
-1. **Work gets lost in Google Chat and email.** Tasks, handoffs, and status updates scattered across threads. Most of us use Google Chat & Gmail as our work queue —— which is becoming laborious as we grow.
-2. **Lots of information gaps.** No visibility into sub-component inventory, no resource scheduling data, manual SLA tracking. A lot of time spent shlepping data from spreadsheets to CRM ... and back ... and forth.
-3. **Financials are fuzzy.** We don't have efficient ways of tracking gross profit by customer, project, or business unit.
+1. **We're spending a lot of time scampering between systems.** For example: fulfilling a $100 order takes 4 people and 3 different tools. Way more admin than it should be.
+2. **We've outgrown our current tools.** We're serving nearly 200 labs now, and tracking things like response time and profit-by-customer just isn't doable with what we have.
+3. **Too many hand-offs live in email, chat, and hallway conversations.** Too much to juggle, even for this crack squad.
 
 Wyatt fixes this by putting everything in one place.
 
@@ -47,14 +47,16 @@ We chose Odoo for three reasons:
 - **Proven.** Teams we trust launched on Odoo with the same implementation group and built a $26M business on top of it.
 
 ## Get to Know Wyatt: Where to Start
+
 If you're new to Wyatt, read in this order:
 
 1. **[Core Concepts](/core-concepts):** the dozen building blocks every screen in Wyatt shares. Worth reading before anything else.
-2. **[Apps Overview](/user-guides/apps):** a quick tour of every app, what it's for, and who uses it most. Most people only touch four or five.
-3. **The User Guide for your role:** [Field Service](/user-guides/field-service/), [Sales](/user-guides/sales/), [Operations](/user-guides/operations/), or [Accounting & Finance](/user-guides/accounting/).
-4. [Technical Docs](/technical/): custom module reference for developers and power users.
+2. **[The Wyatt Toolbox](/user-guides/apps):** a quick tour of every tool, what it's for, and who uses it most. Most people only touch four or five.
+3. **[Technical Docs](/technical/):** custom module reference for developers and power users.
 
 Standard Odoo features (accounting basics, CRM fundamentals, and so on) are already documented by [Odoo itself](https://www.odoo.com/documentation/19.0/). We won't duplicate that here. This site focuses on what's specific to Nugget.
+
+Expect to see some caution tape and open cans of paint over the next few weeks while we get moved in.
 
 ## When You're Stuck
 

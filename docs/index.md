@@ -13,7 +13,7 @@ hero:
       text: Core Concepts
       link: /core-concepts
     - theme: alt
-      text: Apps Overview
+      text: The Wyatt Toolbox
       link: /user-guides/apps
 
 features:
@@ -23,8 +23,8 @@ features:
   - title: Core Concepts
     details: The foundational ideas that show up across every app in Wyatt.
     link: /core-concepts
-  - title: Apps Overview
-    details: A quick tour of every Odoo app in Wyatt and what it's used for.
+  - title: The Wyatt Toolbox
+    details: A quick tour of every tool in the box and what it's used for.
     link: /user-guides/apps
   - title: Technical Docs
     details: Custom modules, dev environment setup, and end-to-end test plans.
