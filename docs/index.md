@@ -13,20 +13,20 @@ hero:
       text: Core Concepts
       link: /core-concepts
     - theme: alt
-      text: User Guides
-      link: /user-guides/
+      text: Apps Overview
+      link: /user-guides/apps
 
 features:
-  - title: Field Service
-    details: Schedules, timesheets, per diem, service requests, and dispatch workflows.
-    link: /user-guides/field-service/
-  - title: Sales
-    details: Quoting, system sales, service contract sales, and pipeline management.
-    link: /user-guides/sales/
-  - title: Operations
-    details: Inventory, purchasing, receiving, shipping, and assembly.
-    link: /user-guides/operations/
-  - title: Accounting & Finance
-    details: Financial close, AP/AR, analytic accounts, and management reporting.
-    link: /user-guides/accounting/
+  - title: Why Wyatt
+    details: The story behind picking Odoo for our ERP and the goals it's serving.
+    link: /why-wyatt
+  - title: Core Concepts
+    details: The foundational ideas that show up across every app in Wyatt.
+    link: /core-concepts
+  - title: Apps Overview
+    details: A quick tour of every Odoo app in Wyatt and what it's used for.
+    link: /user-guides/apps
+  - title: Technical Docs
+    details: Custom modules, dev environment setup, and end-to-end test plans.
+    link: /technical/
 ---
