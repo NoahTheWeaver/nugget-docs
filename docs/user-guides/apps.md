@@ -5,7 +5,7 @@ sidebar: false
 
 # The Wyatt Toolbox
 
-Wyatt is a toolbox. Each app is one tool. This page is the labeled drawer.
+Wyatt is a toolbox. Each app is one tool. Here's what each one is for and who reaches for it most.
 
 ::: warning You won't use all of these
 Most people use four or five apps a day, not twenty. The rest are here so you can recognize them when you see them referenced elsewhere.
