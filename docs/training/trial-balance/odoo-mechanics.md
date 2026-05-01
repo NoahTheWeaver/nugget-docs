@@ -69,21 +69,22 @@ The Review menu opens a sub-tree. Hover **Audit** (it's a sub-menu, not a leaf).
 
 **3. Create the working file for the period.**
 
-You're now on the Working Files list view. Click the purple **New** button (top-left). The new-record form has a header area with a Type field (defaults to Account Audit), a Date From field, a Date To field, and a Company field (Nugget Scientific). Below the header is a tab strip with Reports / Status / Notes tabs. The Reports tab is the one you'll use most: it shows clickable links to Trial Balance, Balance Sheet, Profit & Loss, Aged Receivable, Aged Payable, and General Ledger.
+You're now on the Working Files **kanban** (not list) view. Click the purple **New** button (top-left). This launches the **Start an Audit** wizard (`account.return.creation.wizard`) where you set period (e.g., 2026-02-01 to 2026-02-28) and category (Account Audit). Confirm the wizard.
 
-Set Type = Account Audit (default). Date From = first day of period. Date To = last day. Save (Cmd+S, or click the cloud-save icon in the breadcrumb).
+A new audit working-file kanban tile appears, showing two progress sections: **Balances** (per-account audit-status tracker) and **Checks** (a checklist of standard close items). The tile is the persistent record; you'll return to it for every step of the close.
 
-The working file is now persistent and you can return to it later.
+**4. Open the Balances list from the working-file tile.**
 
-**4. Open the Trial Balance from inside the working file.**
+On the kanban tile, click the **Balances** progress link. This opens an `account.account` list view scoped to the period, showing every GL account with an audit-status badge column. The view's title is "Balances," not "Trial Balance" — it's the audit-cycle equivalent. Each row shows the account, its period balance, and the badge.
 
-On the saved working file's Reports tab, click **Trial Balance**. The TB opens *with audit-status icons* immediately to the left of each account name. The icons render as small colored dots: gray = To Review, green = Reviewed, blue = Supervised, red = Anomaly.
+If you want the standard Trial Balance report alongside, open it separately (Accounting → Reporting → Ledgers → Trial Balance). The standard TB does not show audit badges; the Balances list inside the working file does. Most controllers cross-reference the two: TB for Cooper-facing export, Balances for working-the-status badges.
 
 **5. Working with the badges.**
 
-- Click the dot next to an account row. A small dropdown menu appears with the four status choices (To Review / Reviewed / Supervised / Anomaly).
-- Click **Reviewed**. The dropdown closes and the dot turns green. The change saves immediately (no Save button needed).
-- Status persists across sessions, tied to the working file. Closing the browser doesn't reset it.
+- The badge column on the Balances list shows the four states (To Review / Reviewed / Supervised / Anomaly) as colored dots or labels per row.
+- Click a row's badge. A status dropdown appears with the four choices.
+- Click **Reviewed**. The dropdown closes and the badge updates immediately (no Save button needed).
+- Status persists across sessions, tied to the working file's `account.audit.account.status` records. Closing the browser doesn't reset it.
 
 **6. Coming back the next day.**
 

@@ -78,10 +78,11 @@ export default defineConfig({
       // in the top nav, in any other sidebar, or in site search.
       '/training/trial-balance/': [
         {
-          text: 'Trial Balance Training',
+          text: 'Cutover & TB Training',
           items: [
             { text: 'Overview + Exec Summary', link: '/training/trial-balance/' },
             { text: 'Concepts', link: '/training/trial-balance/concepts' },
+            { text: 'Cutover Load Mechanics', link: '/training/trial-balance/cutover-load' },
             { text: 'Odoo Mechanics', link: '/training/trial-balance/odoo-mechanics' },
             { text: 'Tie-Out Matrix', link: '/training/trial-balance/tie-out-matrix' },
             { text: 'Compliance Calendar', link: '/training/trial-balance/compliance-calendar' },

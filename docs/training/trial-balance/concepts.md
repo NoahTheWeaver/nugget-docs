@@ -69,6 +69,15 @@ The set of activities that finish the books for a month:
 
 Close is done when the lock is set and Cooper is notified. Not before.
 
+## Deferred revenue recognition mode
+
+Wyatt has two modes for recognizing deferred revenue, set on `res.company`:
+
+- **`on_validation`** (recommended): when a deferrable invoice is validated, Wyatt creates the full schedule of recognition draft JEs upfront with `auto_post=at_date`. The `account.ir_cron_auto_post_draft_entry` cron flips them to Posted on their accounting date. Andrea sees recognition entries appear automatically every period.
+- **`manual`**: no draft schedule is created at validation time. Recognition is generated on-demand by clicking "Generate Entries" inside the Deferred Revenue report (Accounting → Review → Regularization Entries → Deferred Revenues).
+
+Nugget runs `on_validation`. The cutover preflight verifies this. If it gets switched to `manual` accidentally, the close-time check for "did the recognition entries post?" silently misses entries that were never created. Confirm `generate_deferred_revenue_entries_method = on_validation` on every cutover preflight and quarterly.
+
 ## Lock dates
 
 Wyatt has five lock-date fields on `res.company`. The wizard exposes them with these labels (which differ from the underlying field strings on the model):

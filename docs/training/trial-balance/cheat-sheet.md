@@ -16,8 +16,8 @@ The one-pager. Print or pin. Assumes you've read the rest at least once.
 - [ ] Bank statements downloaded (operating + payroll)
 - [ ] Ramp statement closed for the period
 - [ ] Avalara liability worksheet pulled
-- [ ] Plaid bank feed current (check the "last refresh" timestamp on each bank journal tile from the Accounting Dashboard)
-- [ ] Period's recognition entries posted: search Journal Entries for `DEP-YYYY-MM`, `DEFREV-YYYY-MM`, `PREPAID-YYYY-MM` references — all should be Posted, not Draft. (Odoo creates the full schedule at validation time and uses `account.ir_cron_auto_post_draft_entry` to flip drafts to Posted on date.)
+- [ ] Plaid bank feed current (check each bank journal tile on the Dashboard for fetching/error/reconnect indicators; drill into the journal for `last_sync` if needed)
+- [ ] Period's recognition entries posted: in Journal Entries, filter by Journal (Asset Depreciation, Deferred Revenue) + period date + State = Posted. Confirm expected counts. Anything still Draft = check `account.ir_cron_auto_post_draft_entry` last_run.
 - [ ] All in-period invoices/bills posted (no drafts)
 - [ ] Cutoff confirmed: nothing dated next-period sitting in this period (or vice versa)
 - [ ] Back-dated entries reviewed (any JE create_date well after period end gets a memo)
@@ -77,9 +77,9 @@ For each account that doesn't tie:
 
 - [ ] Accrual JEs for period (utilities, legal, etc., per accrual schedule)
 - [ ] Reversing JEs for *prior* period accruals (auto-posted on first of period; verify they fired)
-- [ ] Deferred revenue recognition entry posted (search reference `DEFREV-YYYY-MM`; status = Posted)
-- [ ] Depreciation entry posted (`DEP-YYYY-MM`; Posted)
-- [ ] Prepaid amortization entry posted (`PREPAID-YYYY-MM`; Posted)
+- [ ] Deferred revenue recognition entries posted (filter Journal Entries by Deferred Revenue journal + period; State = Posted)
+- [ ] Depreciation entries posted (filter by Asset Depreciation journal + period; Posted)
+- [ ] Prepaid amortization entries posted (filter by Prepaid journal + period; Posted)
 
 ## Lock
 

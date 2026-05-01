@@ -7,9 +7,16 @@ head:
       content: noindex,nofollow
 ---
 
-# Walkthrough: February 2026 Close
+# Walkthrough: February 2026 Close in Wyatt
 
-A worked example, end to end. The numbers below are illustrative; the actual February close uses the figures Wyatt produces. The shape of the work is what matters.
+A worked example of a Wyatt close, end to end.
+
+**Two contexts for this walkthrough:**
+
+- **Dress-rehearsal context (pre-cutover, against staging):** before the May 1, 2026 production cutover, we run this walkthrough against a Wyatt staging replica that has been loaded via the [cutover process](./cutover-load) using QuickBooks data as-of 2026-02-29. The proof of cutover success is whether the Feb close in Wyatt matches Cooper's Feb close in QuickBooks, account by account.
+- **Post-cutover context (production close, May 31 onward):** after May 1, the same walkthrough runs every month against production Wyatt. The numbers come from real activity instead of a staging replay, but the steps are identical.
+
+The numbers below are illustrative; the real close uses the figures Wyatt produces. The shape of the work is what matters.
 
 ## Close calendar
 
@@ -37,7 +44,7 @@ Before opening Wyatt, three things on the desk:
 
 If any of these aren't ready, stop. The close depends on external sources of truth being closed first.
 
-Also confirm the **Plaid bank feed is current**. From the Accounting Dashboard, each bank journal tile shows a "last refresh" timestamp under its sync status badge. If a tile shows a stale or failed-sync state, click the tile to drill in or use the manual sync button. The Configuration → Online Synchronization menu is dev-mode only by default; the dashboard tile is the user-facing path.
+Also confirm the **Plaid bank feed is current**. From the Accounting Dashboard, each bank journal tile shows the count of fetched-but-unreconciled transactions, plus a sync state indicator (a fetching spinner if a refresh is in progress, an error/reconnect button if Plaid lost auth, or a "Fetch Transactions" link if a manual sync is needed). Click the tile to drill into the bank journal form, where the connected `account.online.account` record's `last_sync` field shows the actual timestamp. If sync is stale or errored, manual-import the missing statements before continuing.
 
 ## Step 1 — Confirm activity is posted
 
@@ -67,23 +74,25 @@ Three monthly recognition activities at Nugget:
 - Deferred revenue recognition.
 - Prepaid amortization (where applicable).
 
-In Odoo 19, these are **not** driven by monthly recognition crons. When a deferrable invoice (or asset) is validated, Odoo creates the full schedule of draft JEs upfront with `auto_post=at_date` set on each. The single cron `account.ir_cron_auto_post_draft_entry` (Settings → Technical → Scheduled Actions, search "Post draft entries with auto_post") posts them when their accounting date arrives. So the close-time check is "did the auto-post cron flip the period's drafts to Posted?" not "did a recognition cron run."
+In Odoo 19, these are **not** driven by monthly recognition crons. When a deferrable invoice (or asset) is validated, Odoo creates the full schedule of draft JEs upfront with `auto_post=at_date` set on each. The single cron `account.ir_cron_auto_post_draft_entry` (Settings → Technical → Scheduled Actions, search "Post draft entries with auto_post") flips drafts to Posted on their accounting date. So the close-time check is "did the auto-post cron flip the period's drafts to Posted?" not "did a recognition cron run."
 
-Confirm by reference prefix in the Journal Entries list (Accounting → Accounting → Transactions → Journal Entries):
+Stock Odoo's `ref` field on these auto-generated entries follows the pattern `Depreciation: <asset name>` and `Deferral of <invoice name>`, not a `DEP-YYYY-MM` prefix. Filter by **Journal + date + state**, not by reference text:
 
-- `DEP-2026-02` → depreciation entry for the period.
-- `DEFREV-2026-02` → deferred revenue recognition.
-- `PREPAID-2026-02` → prepaid amortization.
+1. Open **Accounting → Accounting → Transactions → Journal Entries**.
+2. In the search bar, filter Journal = the asset depreciation journal (configured at Accounting → Configuration → Journals; named whatever your COA called it, often "Asset Depreciation"). Add date filter for the period. Status = Posted.
+3. Confirm the expected count of depreciation entries appears for the period. (For Nugget, this should match the number of active depreciable assets.)
+4. Repeat for the **Deferred Revenue** journal — usually the Miscellaneous Operations journal in Odoo 19 stock, unless a dedicated journal was configured.
+5. Repeat for the prepaid amortization journal if applicable.
 
-Each should show status **Posted**, not Draft.
+If any expected entry is still Draft (visible by toggling the filter to State = Draft for the same journal + period), the auto-post cron may have failed. Check `last_run` on `account.ir_cron_auto_post_draft_entry` in Scheduled Actions. If the cron ran but the entry stayed Draft, the entry's date may be in the future or it has a validation error; open and investigate.
 
-If anything is still Draft, the auto-post cron may have failed. Check `last_run` on `account.ir_cron_auto_post_draft_entry` in Scheduled Actions. If the cron ran but the entry stayed Draft, the entry's date may be in the future or the entry has a validation error; open it and investigate.
-
-If the entry doesn't exist at all, no schedule was created during invoice/asset validation. Post manually for the period and document in the close summary so Cooper sees it.
+If an expected entry doesn't exist at all (not Posted, not Draft, not anywhere), no schedule was created during invoice/asset validation — that's a configuration problem. Post manually for the period and document in the close summary so Cooper sees it.
 
 ## Step 3 — Pull the trial balance
 
-**Accounting → Review → Audit → Working Files**. Click **New**. Set period to 2026-02. Name it `2026-02 Close`. Save.
+**Accounting → Review → Audit → Working Files** (kanban view). Click **New** to launch the "Start an Audit" wizard. Set Date From = 2026-02-01, Date To = 2026-02-28, category = Account Audit. Confirm. A working-file kanban tile appears.
+
+Click the **Balances** progress link on the tile to open the audit-cycle Balances list, where audit-status badges live. (The standard Trial Balance report from Reporting → Ledgers does NOT show badges; only the Balances list inside the working file does.)
 
 Open the Trial Balance from inside the audit working file (the working file shows links to supported reports; click Trial Balance there).
 
@@ -248,11 +257,13 @@ Mark Reviewed.
 
 Mark Reviewed.
 
-## Step 14 — Cutover roll-forward (May–Oct 2026 only)
+## Step 14 — Cutover roll-forward
 
-For the first six closes after cutover, run an additional proof: cutover JE balances + period activity = period-end GL balances by account. Resolve any account where the roll-forward doesn't match before locking.
+**Dress-rehearsal context.** This is the most important tie-out of the dress rehearsal. Confirm that the Feb 2026 TB pulled from Wyatt-staging equals Cooper's Feb 2026 TB pulled from QuickBooks, account by account, within $0.02. If yes, the cutover load mechanics are validated. If no, identify which load step (cutover JE, inventory rebuild, or specific account mapping) drifted, fix it on the staging replica, and re-run the rehearsal. See [Cutover Load Mechanics](./cutover-load) for the full process.
 
-For Feb 2026 (the dress-rehearsal close), this step is N/A — Feb is pre-cutover.
+**Post-cutover context (May–October 2026).** For the first six closes after the production cutover, run an additional roll-forward proof: cutover JE balances + period activity = period-end GL balances by account. Migration Suspense (3900) must equal $0.00 every close from May through October. Resolve any account where the roll-forward doesn't match before locking.
+
+**Post-October 2026.** Standard period-to-period roll-forward applies; the cutover proof is no longer needed.
 
 ## Step 15 — Sample-tie revenue, COGS, expenses
 
