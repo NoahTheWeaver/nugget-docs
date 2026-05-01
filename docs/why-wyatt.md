@@ -44,18 +44,6 @@ We chose Odoo for three reasons:
 - **Simple to use.** The interface is clean and the concepts are small. Most people are productive within a day.
 - **Proven.** Teams we trust launched on Odoo with the same implementation group and built a $26M business on top of it.
 
-## Get to Know Wyatt: Where to Start
-
-::: tip Start here
-**[Read Core Concepts](/core-concepts)** — the dozen building blocks every screen in Wyatt shares. About 5 minutes. Worth doing before anything else.
-:::
-
-After that, browse **[The Wyatt Toolbox](/user-guides/apps)** — a quick tour of every tool, what it's for, and who uses it most. Most people only touch four or five.
-
-Standard Odoo features (accounting basics, CRM fundamentals, and so on) are already documented by [Odoo itself](https://www.odoo.com/documentation/19.0/). We won't duplicate that here. This site focuses on what's specific to Nugget.
-
-Expect to see some caution tape and open cans of paint over the next few weeks while we get moved in.
-
 ## When You're Stuck
 
 Drop a note in the Wyatt channel on Google Chat. Or if you're in a rush, text or call Noah. (As always, no piece of feedback is too small to share.)
