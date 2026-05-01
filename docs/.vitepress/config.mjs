@@ -72,6 +72,26 @@ export default defineConfig({
           ],
         },
       ],
+
+      // Internal-only training. Sidebar fires only when on this path, so the
+      // training is reachable to anyone who has the URL but never surfaced
+      // in the top nav, in any other sidebar, or in site search.
+      '/training/trial-balance/': [
+        {
+          text: 'Trial Balance Training',
+          items: [
+            { text: 'Overview + Exec Summary', link: '/training/trial-balance/' },
+            { text: 'Concepts', link: '/training/trial-balance/concepts' },
+            { text: 'Odoo Mechanics', link: '/training/trial-balance/odoo-mechanics' },
+            { text: 'Tie-Out Matrix', link: '/training/trial-balance/tie-out-matrix' },
+            { text: 'Compliance Calendar', link: '/training/trial-balance/compliance-calendar' },
+            { text: 'Walkthrough: Feb 2026', link: '/training/trial-balance/walkthrough' },
+            { text: 'Variance Triage', link: '/training/trial-balance/variance-triage' },
+            { text: 'Reversing Entries', link: '/training/trial-balance/reversing-entries' },
+            { text: 'Cheat Sheet', link: '/training/trial-balance/cheat-sheet' },
+          ],
+        },
+      ],
     },
 
     socialLinks: [
@@ -89,6 +109,10 @@ export default defineConfig({
           if (env.frontmatter?.search === false) return ''
           const path = env.relativePath || ''
           if (path.startsWith('user-guides/') && path !== 'user-guides/apps.md') {
+            return ''
+          }
+          // Internal training is unsearchable by default. Anyone with the URL can read it.
+          if (path.startsWith('training/')) {
             return ''
           }
           return html
