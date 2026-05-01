@@ -1,13 +1,17 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Wyatt Docs',
+  title: 'Wyatt Documentation',
   description: 'Developer and user documentation for Wyatt (Odoo 19)',
   base: '/',
 
   lastUpdated: true,
 
   themeConfig: {
+    // Trimmed nav: Home, the 3 Getting Started articles, Technical, Feedback.
+    // User guides still build (URLs work for direct links / Hypothesis
+    // annotations) but are not surfaced in the nav and are excluded from
+    // local search via the _render filter below.
     nav: [
       { text: 'Home', link: '/' },
       {
@@ -16,16 +20,6 @@ export default defineConfig({
           { text: 'Why Wyatt', link: '/why-wyatt' },
           { text: 'Core Concepts', link: '/core-concepts' },
           { text: 'Apps Overview', link: '/user-guides/apps' },
-        ],
-      },
-      {
-        text: 'User Guides',
-        items: [
-          { text: 'Overview', link: '/user-guides/' },
-          { text: 'Field Service', link: '/user-guides/field-service/' },
-          { text: 'Sales', link: '/user-guides/sales/' },
-          { text: 'Operations', link: '/user-guides/operations/' },
-          { text: 'Accounting & Finance', link: '/user-guides/accounting/' },
         ],
       },
       { text: 'Technical Docs', link: '/technical/' },
@@ -78,89 +72,28 @@ export default defineConfig({
           ],
         },
       ],
-
-      '/user-guides/field-service/': [
-        {
-          text: 'Field Service',
-          items: [
-            { text: 'Overview', link: '/user-guides/field-service/' },
-            { text: 'Your Daily Workflow', link: '/user-guides/field-service/daily-workflow' },
-            { text: 'Viewing Your Schedule', link: '/user-guides/field-service/schedule' },
-            { text: 'Service Requests', link: '/user-guides/field-service/service-requests' },
-            { text: 'Time Tracking & Per Diem', link: '/user-guides/field-service/time-tracking' },
-            { text: 'Logging Parts & Materials', link: '/user-guides/field-service/parts' },
-            { text: 'Completing Service Checklists', link: '/user-guides/field-service/checklists' },
-            { text: 'Emergency Dispatch (FSE View)', link: '/user-guides/field-service/emergency-dispatch' },
-          ],
-        },
-      ],
-
-      '/user-guides/sales/': [
-        {
-          text: 'Sales',
-          items: [
-            { text: 'Overview', link: '/user-guides/sales/' },
-            { text: '[TODO] Quoting & Proposals', link: '/user-guides/sales/quoting' },
-            { text: '[TODO] System Sale End-to-End', link: '/user-guides/sales/system-sale' },
-            { text: '[TODO] Service Contract Sale', link: '/user-guides/sales/service-contract-sale' },
-            { text: '[TODO] Pipeline & Forecasting', link: '/user-guides/sales/pipeline' },
-          ],
-        },
-      ],
-
-      '/user-guides/operations/': [
-        {
-          text: 'Operations',
-          items: [
-            { text: 'Overview', link: '/user-guides/operations/' },
-            { text: 'Weekly Timesheet Validation', link: '/user-guides/operations/timesheet-management' },
-            { text: 'Dispatch & Scheduling', link: '/user-guides/operations/dispatch' },
-            { text: '[TODO] System Registry', link: '/user-guides/operations/system-registry' },
-            { text: '[TODO] Service Request Management', link: '/user-guides/operations/service-requests' },
-            { text: '[TODO] Contract Management', link: '/user-guides/operations/contracts' },
-            { text: '[TODO] Receiving & System Intake', link: '/user-guides/operations/receiving' },
-            { text: '[In Progress] Inventory Status Report', link: '/user-guides/operations/inventory-status-report' },
-            { text: 'Tracking Parts Costs to Contracts', link: '/user-guides/operations/inventory-analytics' },
-          ],
-        },
-      ],
-
-      '/user-guides/accounting/': [
-        {
-          text: 'Accounting & Finance',
-          items: [
-            { text: 'Overview', link: '/user-guides/accounting/' },
-            { text: 'Posting Timesheets to GL', link: '/user-guides/accounting/timesheet-posting' },
-            { text: 'Task-Level Cost Tracking', link: '/user-guides/accounting/task-analytics' },
-            { text: 'Per Diem Administration', link: '/user-guides/accounting/per-diem' },
-            { text: '[TODO] Service Contract Revenue', link: '/user-guides/accounting/contract-revenue' },
-            { text: '[TODO] Monthly Financial Close', link: '/user-guides/accounting/financial-close' },
-          ],
-        },
-      ],
-
-      // Overview — matched only when on /user-guides/ exactly (shortest prefix).
-      // Each role's sidebar takes over for deeper paths above.
-      '/user-guides/': [
-        {
-          text: 'User Guides',
-          items: [
-            { text: 'Overview', link: '/user-guides/' },
-            { text: 'Field Service', link: '/user-guides/field-service/' },
-            { text: 'Sales', link: '/user-guides/sales/' },
-            { text: 'Operations', link: '/user-guides/operations/' },
-            { text: 'Accounting & Finance', link: '/user-guides/accounting/' },
-          ],
-        },
-      ],
     },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/NoahTheWeaver/nugget-docs' },
     ],
 
+    // Local search excludes user-guides paths so trimmed-but-still-built
+    // pages don't surface in the in-site search box. Apps Overview is
+    // an exception — it's surfaced in the Getting Started nav.
     search: {
       provider: 'local',
+      options: {
+        _render(src, env, md) {
+          const html = md.render(src, env)
+          if (env.frontmatter?.search === false) return ''
+          const path = env.relativePath || ''
+          if (path.startsWith('user-guides/') && path !== 'user-guides/apps.md') {
+            return ''
+          }
+          return html
+        },
+      },
     },
 
     footer: {
