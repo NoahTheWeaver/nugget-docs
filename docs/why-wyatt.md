@@ -52,10 +52,7 @@ We chose Odoo for three reasons:
 **[Read Core Concepts](/core-concepts)** — the dozen building blocks every screen in Wyatt shares. About 5 minutes. Worth doing before anything else.
 :::
 
-After that:
-
-- **[The Wyatt Toolbox](/user-guides/apps):** a quick tour of every tool, what it's for, and who uses it most. Most people only touch four or five.
-- **[Technical Docs](/technical/):** custom module reference for developers and power users.
+After that, browse **[The Wyatt Toolbox](/user-guides/apps)** — a quick tour of every tool, what it's for, and who uses it most. Most people only touch four or five.
 
 Standard Odoo features (accounting basics, CRM fundamentals, and so on) are already documented by [Odoo itself](https://www.odoo.com/documentation/19.0/). We won't duplicate that here. This site focuses on what's specific to Nugget.
 
