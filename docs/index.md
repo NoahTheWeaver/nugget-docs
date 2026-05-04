@@ -26,7 +26,4 @@ features:
   - title: The Wyatt Toolbox
     details: A quick tour of every tool in the box and what it's used for.
     link: /user-guides/apps
-  - title: Technical Docs
-    details: Custom modules, dev environment setup, and end-to-end test plans.
-    link: /technical/
 ---
