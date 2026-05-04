@@ -8,10 +8,10 @@ export default defineConfig({
   lastUpdated: true,
 
   themeConfig: {
-    // Trimmed nav: Home, the 3 Getting Started articles, Technical, Feedback.
-    // User guides still build (URLs work for direct links / Hypothesis
-    // annotations) but are not surfaced in the nav and are excluded from
-    // local search via the _render filter below.
+    // Trimmed nav: Home, the 3 Getting Started articles, Feedback.
+    // User guides and technical docs still build (URLs work for direct
+    // links / Hypothesis annotations) but are not surfaced in the nav
+    // and are excluded from local search via the _render filter below.
     nav: [
       { text: 'Home', link: '/' },
       {
@@ -22,7 +22,6 @@ export default defineConfig({
           { text: 'The Wyatt Toolbox', link: '/user-guides/apps' },
         ],
       },
-      { text: 'Technical Docs', link: '/technical/' },
       { text: 'Feedback', link: '/feedback' },
     ],
 
@@ -100,9 +99,10 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/NoahTheWeaver/nugget-docs' },
     ],
 
-    // Local search excludes user-guides paths so trimmed-but-still-built
-    // pages don't surface in the in-site search box. Apps Overview is
-    // an exception — it's surfaced in the Getting Started nav.
+    // Local search excludes user-guides and technical paths so
+    // trimmed-but-still-built pages don't surface in the in-site search
+    // box. Apps Overview is an exception — it's surfaced in the
+    // Getting Started nav.
     search: {
       provider: 'local',
       options: {
@@ -111,6 +111,10 @@ export default defineConfig({
           if (env.frontmatter?.search === false) return ''
           const path = env.relativePath || ''
           if (path.startsWith('user-guides/') && path !== 'user-guides/apps.md') {
+            return ''
+          }
+          // Technical docs are unlinked from top nav; keep them out of search too.
+          if (path.startsWith('technical/')) {
             return ''
           }
           // Internal training is unsearchable by default. Anyone with the URL can read it.
