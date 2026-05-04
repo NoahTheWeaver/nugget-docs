@@ -36,6 +36,10 @@ Ah, yeah. _That._
 
 Odoo is a collection of tools that all connect very tightly together and help us run our business. Customer records, sales orders, inventory, timesheets, accounting: all of them live in the same underlying system, so data only has to be entered once and everyone sees the same thing.
 
+## Where to Go Next
+
+Head to **[Core Concepts](/core-concepts)** for the foundational ideas that show up across every app in Wyatt.
+
 ## When You're Stuck
 
 Drop a note in Wyatt's channel on Google Chat, or give Noah a text or call. (If you'd like to leave feedback on this documentation, read [our feedback page](https://wyatt-docs.nuggetscientific.com/feedback.html).)
