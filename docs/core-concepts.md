@@ -168,11 +168,4 @@ Type a leading **/** to narrow the search to apps instead of records. Useful whe
 
 ## Where to Go Next
 
-Now that you've got the patterns, jump into the guide for your role:
-
-- **[Field Service](/user-guides/field-service/)** for field service engineers and dispatch.
-- **[Sales](/user-guides/sales/)** for sales reps and managers.
-- **[Operations](/user-guides/operations/)** for warehouse and ops.
-- **[Accounting & Finance](/user-guides/accounting/)** for accounting and leadership.
-
-Not sure which app handles what? See **[Apps Overview](/user-guides/apps)**.
+Now that you've got the patterns, head to **[The Wyatt Toolbox](/user-guides/apps)** for a tour of every app in Wyatt and what it's used for.
