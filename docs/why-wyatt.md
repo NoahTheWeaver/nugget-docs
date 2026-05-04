@@ -38,4 +38,4 @@ Odoo is a collection of tools that all connect very tightly together and help us
 
 ## When You're Stuck
 
-Drop a note in the Wyatt channel on Google Chat. Or if you're in a rush, text or call Noah. (As always, no piece of feedback is too small to share.)
+Drop a note in Wyatt's channel on Google Chat, or give Noah a text or call. (If you'd like to leave feedback on this documentation, read [our feedback page](https://wyatt-docs.nuggetscientific.com/feedback.html).)
