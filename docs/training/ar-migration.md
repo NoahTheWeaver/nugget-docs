@@ -12,11 +12,6 @@ head:
 
 Single source of truth for the design of the open A/R import. The operational runbook will live at `AR_MIGRATION_RUNBOOK.md` (written after this plan is approved).
 
-**Revision history**
-
-- v1: initial draft routed to Alex + Priya. Both scored < 8/10.
-- v2 (current): incorporates Alex blockers (deferred-revenue overlay for future-dated AR, A/R adjustment JE handling, QBO TB tie-out, run order, sales-tax filing footnote) and Priya blockers (correct AR account code 10020 not 121000, real offset accounts, account.payment journal-type fix, 2024-JE-vs-hard-lock fix, idempotency match key, rollback reconciliation-break logic). Alex re-review: 9/9/9/9. Priya re-review: 8.5/10.
-
 ## Goal
 
 Carry forward Nugget's open Accounts Receivable from QuickBooks Online to Odoo 19, post-cutover, in a way that:
@@ -114,7 +109,7 @@ Mechanics:
 - Andrea's opening JE adds two lines for the future-dated portion of AR: Dr `39000` Migration Suspense / Cr `20510` Unearned Revenue, in the amount of the future-dated AR.
 - As each service period rolls forward, Andrea (or a recurring JE) recognizes revenue: Dr `20510` Unearned Revenue / Cr revenue.
 
-Why this and not Policy A raw: Alex flagged that booking AR for unperformed services with no offsetting deferred-revenue liability fails the basic AR definition (unconditional right to consideration for performance rendered or in progress). It overstates AR and overstates retained earnings on the balance sheet. The deferred-revenue overlay corrects this without changing the migration script — the entire correction lives inside Andrea's opening JE.
+Why this and not Policy A raw: booking AR for unperformed services with no offsetting deferred-revenue liability fails the basic AR definition (unconditional right to consideration for performance rendered or in progress). It overstates AR and overstates retained earnings on the balance sheet. The deferred-revenue overlay corrects this without changing the migration script — the entire correction lives inside Andrea's opening JE.
 
 Fallback: Policy B (truncate at snapshot, only migrate `invoice_date <= snapshot`). Operational cost: someone has to remember to invoice S&G in June, July, August, etc. Acceptable but more failure modes.
 
@@ -140,7 +135,7 @@ Migrate at **open balance only**. The historical partial payment stays in QBO. D
 
 The "customer" on both is QBO's placeholder ("Accounts Receivable Adjustment"), not a real customer. Both entries are 1.5+ years old.
 
-**Recommendation (Alex's position): Andrea investigates and resolves both in QBO before snapshot.** Three outcomes only:
+**Recommendation: Andrea investigates and resolves both in QBO before snapshot.** Three outcomes only:
 
 - (a) Real customer money mis-attributed to the placeholder → reattribute in QBO to the right customer, re-run the AR Aging, re-snapshot. Migrate as a normal customer invoice.
 - (b) TB plug with no real customer → reverse in QBO with a JE dated in an open QBO period, the bad-debt expense (or other adjustment) hits the right period in QBO. Falls off the snapshot naturally.
@@ -356,7 +351,7 @@ Rollback failure modes are surfaced explicitly: `"Move QBO-10712 is reconciled a
 
 ### Stage 2 — Production
 
-Only after V3 passes, user approves, and Alex+Priya score ≥ 8/10.
+Only after V3 passes and design review approval.
 
 1. PG dump + filestore tarball of prod (per existing CUTOVER_RUNBOOK rollback section).
 2. Switch `.env` to PRODUCTION block.
