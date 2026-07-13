@@ -32,6 +32,7 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/technical/' },
             { text: 'Risk Assessment', link: '/technical/risk-assessment' },
+            { text: 'TV Ops Board', link: '/technical/tv-dashboard' },
           ],
         },
         {
