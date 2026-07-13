@@ -3,7 +3,7 @@
 Operational wallboard for the office TVs, showing live Wyatt data on one
 dark, glanceable page.
 
-- **URL:** `https://nugget-tv.noah-321.workers.dev`
+- **URL:** `https://nugops.com` (fallback: `https://nugget-tv.noah-321.workers.dev`)
 - **Code:** [github.com/NoahTheWeaver/nugget-tv](https://github.com/NoahTheWeaver/nugget-tv) (private)
 - **Hosting:** Cloudflare Workers (not Odoo.sh; fully separate from Wyatt)
 
