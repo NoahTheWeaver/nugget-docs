@@ -13,14 +13,15 @@ All data comes from Wyatt production, read-only. There is no sample data.
 
 | Section | Contents | Source |
 |---|---|---|
-| Ticket map | Every open service ticket plotted on a US map. Color = service project, size = ticket age, pulsing ring = Escalated to SME. | Service Tasks board (`project.task`) |
-| Stage pipeline | Open ticket count per stage plus the average days a ticket spends in each stage (trailing 90 days). | Stage history from chatter tracking |
-| Opened vs closed | Tickets opened and closed per week, last 6 completed weeks. | Task create dates + stage history |
-| Longest in stage | The tickets that have sat longest in their current stage. | `date_last_stage_update` |
-| Client leaderboard | Most tickets opened in the last 30 days, by company. | Tasks grouped by commercial partner |
-| Warehouse ribbon | Houston Receipts / Pick / Delivery: ready, waiting on stock, and late counts. Matches the Inventory Overview kanban. | `stock.picking` |
-| SKU audit | Products tagged `Audited` over products tagged `Top 80%`. | Product tags |
-| Ticker | Latest ticket opens and closes. | Task history |
+| Ticket map | Every open service ticket plotted on a US map. Color = service project, size = ticket age, pulsing ring = Escalated to SME. Work scheduled more than 2 weeks out fades. | Service Tasks board (`project.task`) + planned dates |
+| Service Tasks by Stage | Open ticket count per stage plus the average days a ticket spends in each stage (trailing 90 days). | Stage history from chatter tracking |
+| Working now | Tickets in the Working Now stage with client, assignees, and timesheeted hours. | `project.task` + timesheets |
+| Schedule strip | Where open work piles up in time: now, each of the next 8 weeks, following months, later, and no-date. | Planned dates |
+| Tickets by priority | Open counts for Urgent / High / Medium / Low. | `project.task.priority` |
+| Ticker | Latest ticket opens and final closes. | Task history |
+
+(The warehouse ribbon and SKU-audit meter are dormant in the code, reserved
+for a future warehouse board.)
 
 ## How it stays current
 
