@@ -39,6 +39,7 @@ export default defineConfig({
           text: 'Custom Modules',
           items: [
             { text: 'Service Requests', link: '/technical/modules/service-requests' },
+            { text: 'Service Deliveries', link: '/technical/modules/service-deliveries' },
             { text: 'System Registry', link: '/technical/modules/systems' },
             { text: 'Task Analytics', link: '/technical/modules/task-analytics' },
             { text: 'Timesheet Posting', link: '/technical/modules/timesheet-posting' },

@@ -3,6 +3,7 @@
 Guides for warehouse staff, dispatchers, and operations managers.
 
 - [Weekly Timesheet Validation](./timesheet-management) — Friday checklist for reviewing and validating FSE timesheets
+- [Linking Deliveries to Tasks](./deliveries) — tie outgoing shipments to the job they belong to
 
 ## Charter Process Coverage
 

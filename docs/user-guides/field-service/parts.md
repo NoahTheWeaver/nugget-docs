@@ -68,7 +68,7 @@ If you need a part shipped to you or to the client site:
 2. Tag your dispatcher (@ their name) so it lands in their inbox as an activity.
 3. If the client is okay standing down, move the task to **On Hold** (dispatcher will do this if needed).
 
-Dispatch handles the PO or internal transfer from there.
+Dispatch handles the PO or internal transfer from there. When the shipment goes out, dispatch links the delivery order to your task, so you can watch it from the task's **Deliveries** button instead of asking for tracking updates.
 
 ## What Happens After
 

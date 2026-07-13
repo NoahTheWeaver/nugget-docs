@@ -33,6 +33,10 @@ User flags a warehouse location as "Is Track Analytics"
 
 Each stock picking can be linked to a maintenance request (service request). The service request form shows a "Pickings" stat button with a count of linked transfers.
 
+::: warning Field hidden on the delivery form since July 2026
+The Maintenance Request field no longer appears on the picking form. It went unused (zero linked pickings on production), and deliveries now link directly to tasks via [Service Deliveries](/technical/modules/service-deliveries) v2. The field and its data are intact, and the service request's Pickings button can still create links through it; those still roll up onto the task's Deliveries button.
+:::
+
 ## Key Fields
 
 | Model | Field | Purpose |
@@ -46,7 +50,7 @@ Each stock picking can be linked to a maintenance request (service request). The
 ## Key Views
 
 - **Stock location form** - "Is Track Analytics" checkbox in Additional Info
-- **Stock picking form** - Analytic Account field (visible when location is tracked), Maintenance Request field
+- **Stock picking form** - Analytic Account field (visible when location is tracked); Maintenance Request field (hidden by `nugget_service_deliveries` since July 2026)
 - **Stock picking list** - Custom JS "Search Moves" button to filter by analytic account
 - **Maintenance request form** - Pickings stat button (truck icon)
 
@@ -81,7 +85,7 @@ Each stock picking can be linked to a maintenance request (service request). The
 
 | # | Test | Expected Result |
 |---|------|-----------------|
-| 09 | Link a picking to a service request | Service request field populated on picking |
+| 09 | Link a picking to a service request (via the SR's Pickings button; the picking-form field is hidden) | Service request link populated on picking |
 | 10 | Check stat button on service request | Pickings count shows, clicking opens the list |
 | 11 | Create a new picking from the service request stat button | New picking pre-filled with service request link |
 
@@ -95,13 +99,13 @@ Each stock picking can be linked to a maintenance request (service request). The
 
 | # | Test | Expected Result |
 |---|------|-----------------|
-| 13 | Delete a service request that has linked pickings | Pickings should NOT be deleted (currently they are, see Known Issues) |
+| 13 | Delete a service request that has linked pickings | Pickings survive with the link cleared (ondelete is now set null, see Known Issues) |
 
 ## Known Issues
 
 1. **Typo in field name.** `maintanence_request_id` is misspelled in J2E's code. Don't rename it (would break the database column). Just know it's "maintanence" not "maintenance" when referencing in code.
 
-2. **Cascade delete risk.** The `maintanence_request_id` field uses `ondelete='cascade'`. If a service request is deleted, all linked pickings get deleted. That's inventory data gone. Should be `ondelete='set null'`. Fix before launch.
+2. **Cascade delete risk (fixed).** The `maintanence_request_id` field originally used `ondelete='cascade'`, meaning deleting a service request deleted its linked pickings. It now uses `ondelete='set null'`: deleting a service request just clears the link.
 
 ## Cross-Module Dependencies
 
