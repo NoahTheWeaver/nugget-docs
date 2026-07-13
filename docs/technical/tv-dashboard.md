@@ -1,7 +1,10 @@
 # TV Ops Board
 
-Operational wallboard for the office TVs, showing live Wyatt data on one
-dark, glanceable page.
+Operational wallboard for the office TVs, showing live Wyatt data across
+three dark, glanceable boards that rotate every 30 seconds: **Operations**
+(map + stage overview), **Service Detail** (queues, FSE workload, week
+agenda, bottleneck funnel, orphaned helpdesk tickets), and **Logistics**
+(warehouse pipeline, SKU audit, shipments).
 
 - **URL:** `https://nugops.com` (fallback: `https://nugget-tv.noah-321.workers.dev`)
 - **Code:** [github.com/NoahTheWeaver/nugget-tv](https://github.com/NoahTheWeaver/nugget-tv) (private)
@@ -14,7 +17,7 @@ All data comes from Wyatt production, read-only. There is no sample data.
 | Section | Contents | Source |
 |---|---|---|
 | Ticket map | Every open service ticket plotted on a US map. Color = service project, size = service-call count (0–1 / 2–3 / 4+), pulsing ring = Escalated to SME. Work scheduled more than 2 weeks out fades. | Service Tasks board (`project.task`) + planned dates |
-| Service Tasks by Stage | Open ticket count per stage (terminal "Closed" hidden) plus the average days a ticket spends in each stage (trailing 90 days). | Stage history from chatter tracking |
+| Service Tasks by Stage | Open ticket count per stage (terminal "Closed" hidden) plus the average age of the tickets currently in each stage. Typical 90-day pass-through times live in the Service Detail funnel. | Stage history from chatter tracking |
 | Working now | Tickets in the Working Now stage with client, assignees, and timesheeted hours. | `project.task` + timesheets |
 | Schedule strip | Where open work piles up in time: now (window includes today), each of the next 8 weeks, following months, later — plus red "past" (working window fully elapsed, still in an active phase — slipped work) and "no date"; close-out-stage tickets are excluded since their dates describe the finished working period. | Planned dates |
 | Tickets by priority | Open counts per P1–P4 tag, with a callout for tickets carrying no P tag. | `project.tags` |
