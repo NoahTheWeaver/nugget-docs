@@ -16,9 +16,8 @@ All data comes from Wyatt production, read-only. There is no sample data.
 | Ticket map | Every open service ticket plotted on a US map. Color = service project, size = ticket age, pulsing ring = Escalated to SME. Work scheduled more than 2 weeks out fades. | Service Tasks board (`project.task`) + planned dates |
 | Service Tasks by Stage | Open ticket count per stage (terminal "Closed" hidden) plus the average days a ticket spends in each stage (trailing 90 days). | Stage history from chatter tracking |
 | Working now | Tickets in the Working Now stage with client, assignees, and timesheeted hours. | `project.task` + timesheets |
-| Schedule strip | Where open work piles up in time: now (window includes today), each of the next 8 weeks, following months, later — plus red "past" (dates fully elapsed, still open; tooltip counts those stuck in close-out stages) and "no date". | Planned dates |
+| Schedule strip | Where open work piles up in time: now (window includes today), each of the next 8 weeks, following months, later — plus red "past" (working window fully elapsed, still in an active phase — slipped work) and "no date"; close-out-stage tickets are excluded since their dates describe the finished working period. | Planned dates |
 | Tickets by priority | Open counts per P1–P4 tag, with a callout for tickets carrying no P tag. | `project.tags` |
-| Ticker | Latest ticket opens and final closes. | Task history |
 
 (The warehouse ribbon and SKU-audit meter are dormant in the code, reserved
 for a future warehouse board.)
