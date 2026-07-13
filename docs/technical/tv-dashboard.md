@@ -25,8 +25,8 @@ All data comes from Wyatt production, read-only. There is no sample data.
 ## How it stays current
 
 A scheduled job inside the Cloudflare Worker pulls fresh numbers from Wyatt
-every 10 minutes over JSON-RPC and caches the result. The page itself
-re-fetches every 10 minutes, so TVs update without touching them.
+every 2 minutes over JSON-RPC and caches the result. The page itself
+re-fetches every 2 minutes, so TVs update without touching them.
 
 If a refresh fails, the board keeps showing the last good data and the
 header chip flips from LIVE to STALE after 24 hours. It never goes blank.
