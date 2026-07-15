@@ -3,7 +3,7 @@
 Operational wallboard for the office TVs, showing live Wyatt data across
 three dark, glanceable boards that rotate every 30 seconds: **Operations**
 (map + stage overview), **Service Detail** (queues, FSE workload, week
-agenda, bottleneck funnel, orphaned helpdesk tickets), and **Logistics**
+agenda, bottleneck funnel, client response times), and **Logistics**
 (warehouse pipeline, SKU audit, shipments).
 
 - **URL:** `https://nugops.com` (fallback: `https://nugget-tv.noah-321.workers.dev`)
@@ -21,6 +21,7 @@ All data comes from Wyatt production, read-only. There is no sample data.
 | Working now | Tickets in the Working Now stage with client, assignees, and timesheeted hours. | `project.task` + timesheets |
 | Schedule strip | Where open work piles up in time: now (window includes today), each of the next 8 weeks, following months, later — plus red "past" (working window fully elapsed, still in an active phase — slipped work) and "no date"; close-out-stage tickets are excluded since their dates describe the finished working period. | Planned dates |
 | Tickets by priority | Open counts per P1–P4 tag, with a callout for tickets carrying no P tag. | `project.tags` |
+| Client response times | Median first-reply and follow-up-reply times, last 7 days vs prior 7. Measured in **business hours** (8:00–18:00 Central, Mon–Fri) per the Communication & Scheduling Policy — time outside the window does not accrue, so a 2 a.m. email answered at 7 a.m. reads 0.0h. Same numbers as the Response Times report in Wyatt. | `nugget.service.response` |
 
 (The warehouse ribbon and SKU-audit meter are dormant in the code, reserved
 for a future warehouse board.)
