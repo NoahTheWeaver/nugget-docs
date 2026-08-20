@@ -65,6 +65,7 @@ Smaller apps you'll pull up as needed, not daily.
 |:-:|---|---|
 | <img src="/screenshots/apps/13_surveys.png" alt="Surveys" width="140" /> | Internal and external forms. Used for feedback, intake, and structured questionnaires. | Ops, HR |
 | <img src="/screenshots/apps/22_sign.png" alt="Sign" width="140" /> | Electronic signature on contracts, quotes, and other documents. | Sales, leadership, operations |
+| <img src="/screenshots/apps/29_ai.png" alt="AI" width="140" /> | Ask AI: chat with Wyatt's data and with Doc's Hamilton STAR service knowledge, from the top bar or any text editor. Running on Claude. | Pilot group only for now (Noah, Bo, Gabrielle); the tile and buttons are hidden for everyone else |
 
 ## Admin
 

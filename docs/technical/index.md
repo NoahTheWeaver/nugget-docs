@@ -17,6 +17,9 @@ Internal reference for developers and system administrators. Built by humans, wa
 | [Track Location Analytics](./modules/track-location-analytics) | `track_location_analytics` | Inventory location tracking on stock moves (J2E) |
 | [Maintenance Checklist](./modules/maintenance-checklist) | `maintenance_checklist_report` | Maintenance worksheet report with checklists (J2E) |
 | [Google Sheet Integration](./modules/google-sheet-integration) | `google_sheet_integration` | Google Sheets sync for service requests (J2E) |
+| [AI Pilot (Claude)](./modules/ai-pilot) | `nugget_ai_access` | Gates Odoo's AI app behind the Nugget AI / User pilot group |
+| [AI Pilot (Claude)](./modules/ai-pilot) | `nugget_ai_claude` | Anthropic Claude as an Odoo AI provider (Opus 5 default) |
+| [AI Pilot (Claude)](./modules/ai-pilot) | `nugget_ai_doc` | `ask_doc` tool + Doc agent: Hamilton STAR service knowledge via Doc |
 
 
 ### Module Documentation Structure

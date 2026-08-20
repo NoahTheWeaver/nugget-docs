@@ -52,7 +52,7 @@ export default defineConfig({
             { text: 'Maintenance Checklist', link: '/technical/modules/maintenance-checklist' },
             { text: 'Google Sheet Integration', link: '/technical/modules/google-sheet-integration' },
             { text: 'Gantt View', link: '/technical/modules/gantt' },
-            { text: '[Coming Soon] AI Assistant', link: '/technical/modules/ai-assistant' },
+            { text: 'AI Pilot (Claude)', link: '/technical/modules/ai-pilot' },
           ],
         },
         {
