@@ -43,6 +43,8 @@ Odoo's `LLMApiService` chooses a provider with an `if/elif` on a provider string
 - Messages API, raw HTTP through the service's own `_request`, so Odoo's error mapping, request logging and timeouts keep working and Odoo.sh needs no extra pip dependency. Request timeout is 120s (Opus with adaptive thinking can exceed the service's 30s default).
 - Tool loop: the assistant turn (text, `tool_use` and any thinking blocks) is echoed back verbatim and tool results go back as `tool_result` blocks, matching the contract the stock loop expects.
 - No sampling parameters are sent: Claude 5-family models reject `temperature`, so the agent's **Response Style** has no effect on Claude agents (the control still shows).
+- Reasoning effort is sent as `output_config.effort` on Opus 5 / Sonnet 5 (not Haiku, which rejects it). The API default, `high`, produced 20-30s chat replies on the pilot; the module defaults to **Medium** and exposes it as **Claude reasoning effort** in the same settings block (config parameter `ai.anthropic_effort`: low, medium, high, xhigh, max).
+- Chat rendering: Odoo converts replies with `markdown2`, which (like classic Markdown) needs a blank line before a list, table or heading that follows a sentence. Claude writes them tight, so bullets collapsed into one paragraph and `**` pairs mis-nested (stray `*` in the chat). `ai.agent._post_ai_response` is overridden to normalize the Markdown first (`utils/markdown_normalize.py`: blank lines around lists, tables, headings, quotes and fences; fenced code left alone; idempotent). Provider-agnostic, but lives here because Claude's compact Markdown exposed it.
 - Opus 5 requests carry `fallbacks: "default"` (beta): a safety-classifier refusal is re-run on Anthropic's recommended fallback model instead of returning an empty reply.
 - Installing the module switches the two stock agents (Odoo Agent, Ask AI) to Claude Opus 5 once; admins can change them afterwards without a module update reverting it. AI server actions default to Claude too.
 - Embeddings: Anthropic has none. Claude agents borrow Google's `gemini-embedding-001`, so an agent with **Sources** (RAG uploads) needs a Google key as well. Chat does not. Studio AI fields and voice transcription stay on OpenAI (hard-coded in core).
@@ -51,7 +53,7 @@ Odoo's `LLMApiService` chooses a provider with an `if/elif` on a provider string
 
 Doc (doc.nuggetscientific.com) already indexes the official STAR service manual, addendums, Service News bulletins, the Venus programmer's manuals and 25 years of field knowledge mined from team chat and email, behind a Cloudflare Worker. That corpus is about 843,000 words: too big to put in a prompt, and re-embedding it inside Odoo would need a Google key and duplicate an index Doc already maintains. So agents get Doc as a **tool** instead:
 
-- `ask_doc` AI tool (an `ir.actions.server` of type code) posts the question to Doc's worker and returns the answer plus a numbered **Sources:** list with absolute links.
+- `ask_doc` AI tool (an `ir.actions.server` of type code) posts the question to Doc's worker and returns the answer plus a **Sources:** Markdown list with absolute links (a list, with the blank line Markdown wants, so it still renders when the agent relays it verbatim).
 - "Hamilton STAR service knowledge (Doc)" AI topic teaches agents when to call it (any STAR hardware/firmware/error-code/procedure question, before answering from general knowledge) and how to relay citations.
 - A **Doc** agent (Claude Opus 5, Doc's field-engineer voice), and the topic is also attached to the stock **Ask AI** agent so the top-bar chat can answer STAR questions.
 - Doc's worker URL is the config parameter `nugget_ai_doc.worker_url` (default `https://star-manual-chat.noah-321.workers.dev/`); a redeploy of Doc needs no change here. Doc itself runs Haiku behind the worker, so a Doc answer is Haiku's synthesis relayed by the Wyatt agent. A retrieval-only endpoint on the worker (so Claude composes from raw sections) is the obvious next step if the pilot sticks.
@@ -71,7 +73,8 @@ Doc (doc.nuggetscientific.com) already indexes the official STAR service manual,
 | Pilot roster | User form, Access Rights, **Nugget AI** = User | Data, not module XML; change without a deploy |
 | Anthropic API key | AI > Configuration > Settings | Required before any chat answers |
 | Google API key | same page | Only if an agent gets Sources (embeddings) |
-| Agent model | AI > Agents > agent form > LLM Model | Opus 5 default; Sonnet 5 if cost matters |
+| Agent model | AI > Agents > agent form > LLM Model | Opus 5 default; Sonnet 5 if speed or cost matters |
+| Claude reasoning effort | AI > Configuration > Settings (Anthropic block) | Medium by default; Low for snappier chat |
 | Doc worker URL | config parameter `nugget_ai_doc.worker_url` | Defaults to the live worker |
 
 Install/roster/verify is scripted: `scripts/_sandbox_ai_pilot_setup.py sandbox|prod` in the playground repo (idempotent; the `prod` variant asks before writing). `nugget_ai_access` is not a dependency of the other two; the script installs all three explicitly.
@@ -89,9 +92,11 @@ Install/roster/verify is scripted: `scripts/_sandbox_ai_pilot_setup.py sandbox|p
 | 07 | Member asks Ask AI a Hamilton STAR question ("autoload init procedure?") | Answer relayed from Doc with a Sources list linking to doc.nuggetscientific.com |
 | 08 | Remove the key, ask again | Clear "No API key set for provider 'Anthropic'" error, nothing crashes |
 | 09 | Open an agent form | LLM Model dropdown lists Claude Opus 5 / Sonnet 5 / Haiku 4.5 next to the stock models |
+| 09b | Ask a question whose answer is a breakdown ("how many STARs does Vibrant have, by contract status?") | Bullets render as a real list, bold labels intact, no stray `*`; a table renders as a table |
+| 09c | Change Claude reasoning effort to Low and ask again | Noticeably faster reply |
 | 10 | Uninstall `nugget_ai_access` | AI tile and buttons return for everyone (menu group row goes with the group) |
 
-Automated: 36 unit tests across the three modules (`--test-tags nugget_ai`), plus `scripts/_e2e_ai_access_local.py`, a headless browser check of surfaces 01-04 against a local dev DB.
+Automated: 38 unit tests across the three modules (`--test-tags nugget_ai`), plus `scripts/_e2e_ai_access_local.py`, a headless browser check of surfaces 01-04 against a local dev DB.
 
 ## Cross-Module Dependencies
 
