@@ -6,7 +6,7 @@ title: AI Pilot (Claude)
 
 Odoo 19's built-in AI app, running on Anthropic Claude, limited to a pilot group, and wired to Doc (our Hamilton STAR service-manual assistant). Three modules: `nugget_ai_access`, `nugget_ai_claude`, `nugget_ai_doc`.
 
-**Status (August 2026):** installed and configured on the sandbox; pilot roster is Noah, Bo and Gabrielle. Not yet on production. Earlier plan for this page (Gemini + Wyatt docs as a knowledge source, no custom code) is superseded by what follows.
+**Status (21 August 2026):** installed and configured on the sandbox; pilot roster is Noah, Bo and Gabrielle. Not on production: the stock AI app that had been installed there on 18 August was uninstalled on 21 August, so production currently has no AI surfaces at all. Bringing the pilot to production means the `sandbox -> main` merge plus the setup script, which reinstalls `ai_app` as a dependency. Earlier plan for this page (Gemini + Wyatt docs as a knowledge source, no custom code) is superseded by what follows.
 
 ## Why This Exists
 
