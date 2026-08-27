@@ -20,6 +20,7 @@ Internal reference for developers and system administrators. Built by humans, wa
 | [AI Pilot (Claude)](./modules/ai-pilot) | `nugget_ai_access` | Gates Odoo's AI app behind the Nugget AI / User pilot group |
 | [AI Pilot (Claude)](./modules/ai-pilot) | `nugget_ai_claude` | Anthropic Claude as an Odoo AI provider (Opus 5 default) |
 | [AI Pilot (Claude)](./modules/ai-pilot) | `nugget_ai_doc` | `ask_doc` tool + Doc agent: Hamilton STAR service knowledge via Doc |
+| [Portal Terminology](./modules/portal-terminology) | `nugget_portal_terminology` | Customer portal says Service Contract wherever Odoo says Subscription |
 
 
 ### Module Documentation Structure

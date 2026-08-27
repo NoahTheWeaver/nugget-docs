@@ -1,7 +1,7 @@
 # Contract Management
 
 ## What a Contract Looks Like
-A service contract is a recurring subscription in Odoo. It covers specific systems at a customer site for a defined term.
+A service contract is a recurring subscription in Odoo. It covers specific systems at a customer site for a defined term. Customers never meet the word "subscription": their portal pages and emails call it a service contract (see [Portal Terminology](/technical/modules/portal-terminology) for the current rollout status).
 *(coming soon)*
 
 ## Viewing Active Contracts
