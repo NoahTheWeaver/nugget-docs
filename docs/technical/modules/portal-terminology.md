@@ -6,7 +6,7 @@ title: Portal Terminology
 
 Customer-facing pages say "Service Contract" wherever Odoo says "Subscription". Module: `nugget_portal_terminology`. Depends on `sale_subscription` only.
 
-**Status (27 August 2026):** installed on the sandbox build, not yet on production. Production customers still see "Subscription" until the module is merged to `main` and installed.
+**Status (27 August 2026):** live on production. Installed the same day it was built; verified on the sandbox (S2400) and on production (S2430).
 
 ## Why This Exists
 
@@ -68,7 +68,7 @@ No settings. Install the module.
 
 ## Test Plan
 
-Run on the local dev database (seeded contract, renewal quote, portal user) and on the sandbox build against S2400 on 27 August 2026.
+Run on the local dev database (seeded contract, renewal quote, portal user), on the sandbox build against S2400, and on production against S2430, all on 27 August 2026.
 
 | # | Test | Expected Result |
 |---|---|---|
